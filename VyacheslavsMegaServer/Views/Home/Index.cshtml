@@ -1,0 +1,77 @@
+﻿<div class="block_standart intro" id="intro">
+    <div class="container">
+        <div class="intro_container">
+            <div class=title_container>
+                <h1 class="title">Открой для себя мир Minecraft с<br>Vyacheslav's mega server</h1>
+
+            </div>
+            <hr class="hr_intro" />
+            <a href="~/downloads/Vyacheslav's Mega Server.zip"><button class="mc_button download_pack_link_button"><span class="mc_button_title">Скачать сборку</span></button></a>
+            <h2 class="subtitle">IP-адрес сервера: 109.248.157.54:25565</h2>
+        </div>
+    </div>
+</div>
+
+<div class="block_standart about" id="about">
+    <div class="container">
+        <div class="section">
+            <h2>О проекте</h2>
+            <p class="section_text">
+                Vyacheslav's mega server – бесплатный майнкрафт сервер организации "Vyacheslav's
+                engineering company"
+                (VEC), созданный на платформе <a class="white_link" href="https://kpvk.edu.kz">Костанайского политехнического высшего колледжа</a> самим Вячеславом.
+                <br>На сервере установлена сборка интересных модов. Этот модпак превращает Minecraft в сложное и увлекательное приключение с множеством новых возможностей.
+                <br>Погружайтесь в новые приключения с:
+            </p>
+            <ul class="section_list">
+                <li>Улучшенным ИИ мобов и механикой боя</li>
+                <li>Обширными новыми биомами для исследования</li>
+                <li>Разнообразными и опасными новыми мобами</li>
+                <li>Продвинутой магией и зачарованиями</li>
+                <li>И многим другим</li>
+            </ul>
+            <p class="section_text">
+                Присоединяйтесь к нам по адресу 109.248.157.54 и станьте частью нашего мира!
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="block_standart report" id="report">
+    <div class="container">
+        <div class="section">
+            <h2>Не работает сервер? Сообщите о сбоях:</h2>
+            <form class="report_form" method="post">
+                <label class="report_label">
+                    Опишите вашу проблему <span class="counter">
+                        (<span class="current">0</span>&nbsp;/
+                        <span class="total">1000</span> символов)
+                    </span>
+                </label>
+                <textarea class="report_textarea" name="reportText"
+                          placeholder="Введите минимум 5 символов"></textarea>
+                <button class="mc_button"><span class="mc_button_title">Отправить</span></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="block_standart contacts" id="contacts">
+    <div class="container">
+        <div class="section">
+            <h2>Контакты</h2>
+            <div class="contacts_inner">
+                <img class="contacts_image" src="~/img/Evray.png" />
+                <div class="">
+                    <p class="contacts_text">
+                        Вячеслав (Evray), создатель и администратор сервера:
+                        <br>WhatsApp: +7 (705) 806 31 01
+                        <br>VK: <a class="white_link" href="https://vk.com/sansei_1">Вячеслав Костырев</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_ScriptsPartial")
