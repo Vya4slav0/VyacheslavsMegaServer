@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using VyacheslavsMegaServer.Data.Repositories;
 using VyacheslavsMegaServer.Models;
 
 namespace VyacheslavsMegaServer.Controllers
@@ -15,7 +16,7 @@ namespace VyacheslavsMegaServer.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new MainPageRepository().GetMainPageViewModel());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

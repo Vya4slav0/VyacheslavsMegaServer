@@ -11,6 +11,10 @@ namespace VyacheslavsMegaServer.Data
         {
         }
 
+        public AppDbContext() : base()
+        {
+        }
+
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Link> Links { get; set; }
         public DbSet<MainPageData> MainPageData { get; set; }
@@ -18,6 +22,7 @@ namespace VyacheslavsMegaServer.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL("server=localhost;user=root;password=root;database=vms_db;");
+            optionsBuilder.UseLazyLoadingProxies(true);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

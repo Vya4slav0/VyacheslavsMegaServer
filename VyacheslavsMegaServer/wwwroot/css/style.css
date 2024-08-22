@@ -85,6 +85,7 @@ header {
     height: fit-content;
     background-color: #000A;
     padding: 10px 0;
+    z-index: 10000;
 }
 
 .header_inner {
@@ -144,7 +145,6 @@ header {
 }
 
 .title::after {
-    content: "Теперь с модами";
     color: yellow;
     font-family: minecraft;
     font-size: 20px;
@@ -155,7 +155,7 @@ header {
     transform: rotate(-0.06turn) translate(-120px, -15px) scale(1);
     width: fit-content;
     block-size: fit-content;
-    z-index: 1000;
+    z-index: 2;
 
     animation: pulse 1s infinite;
 }

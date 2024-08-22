@@ -17,7 +17,7 @@ namespace VyacheslavsMegaServer.Data.Entities
         public string Description { get; set; }
 
         #region Navigations
-        public ICollection<Contact> Contacts { get; set; } = null!;
+        public virtual ICollection<Contact> Contacts { get; set; } = null!;
         #endregion
     }
 }

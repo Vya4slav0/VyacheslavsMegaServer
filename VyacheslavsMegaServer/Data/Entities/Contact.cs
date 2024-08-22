@@ -12,11 +12,11 @@ namespace VyacheslavsMegaServer.Data.Entities
         public string Description { get; set; }
 
         #region Navigations
-        public IdentityUser User { get; set; } = null!;
+        public virtual IdentityUser User { get; set; } = null!;
 
-        public ICollection<Link> Links { get; set; } = null!;
+        public virtual ICollection<Link> Links { get; set; } = null!;
 
-        public MainPageData? MainPage { get; set; }
+        public virtual MainPageData? MainPage { get; set; }
         #endregion
     }
 }
