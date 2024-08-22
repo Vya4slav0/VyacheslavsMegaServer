@@ -21,7 +21,7 @@ namespace VyacheslavsMegaServer.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;user=root;password=root;database=vms_db;");
+            //optionsBuilder.UseMySQL("server=localhost;user=root;password=root;database=vms_db;");
             optionsBuilder.UseLazyLoadingProxies(true);
         }
 
@@ -35,8 +35,10 @@ namespace VyacheslavsMegaServer.Data
             {
                 Id = "d4bc75a9-ca48-45aa-a3f2-2ea5886ce303",
                 UserName = "Evray",
+                NormalizedUserName = "EVRAY",
                 PhoneNumber = "+7 (705) 806 3101",
                 Email = "vya4slav4617@gmail.com",
+                NormalizedEmail = "VYA4SLAV4617@GMAIL.COM",
                 EmailConfirmed = true,
                 PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "admin")
             });
@@ -45,6 +47,7 @@ namespace VyacheslavsMegaServer.Data
             {
                 Id = "db158bac-48d4-47c3-a6b0-c6d8b5c9ee55",
                 Name = "Admin",
+                NormalizedName = "ADMIN"
             });
 
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>()

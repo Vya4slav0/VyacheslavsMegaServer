@@ -1,11 +1,19 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using VyacheslavsMegaServer.Data;
+using VyacheslavsMegaServer.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddAuthorization(x =>
+    x.AddPolicy("AdminAreaPolicy", policy => policy.RequireRole("Admin")));
+
+builder.Services.AddControllersWithViews(x =>
+    x.Conventions.Add(new AdminAreaAutorization("Admin", "AdminAreaPolicy")));
+
+builder.Services.AddDbContext<AppDbContext>(x =>
+    x.UseMySQL("server=localhost;user=root;password=root;database=vms_db;"));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
@@ -43,7 +51,7 @@ app.UseCookiePolicy();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute("admin", "{area=Admin}/{action=Index}/{id?}");
+app.MapControllerRoute("admin", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
