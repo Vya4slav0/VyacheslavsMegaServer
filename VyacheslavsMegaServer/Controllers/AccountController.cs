@@ -18,15 +18,15 @@ namespace VyacheslavsMegaServer.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl)
+        public IActionResult Login(string? returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ReturnUrl = returnUrl ?? "/";
             return View(new LoginViewModel());
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl)
         {
             if (ModelState.IsValid)
             {
