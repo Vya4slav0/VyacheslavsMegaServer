@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="Models\ViewComponents\" />
+    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
 </Project>

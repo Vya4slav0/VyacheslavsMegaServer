@@ -1,23 +1,30 @@
 ﻿@model LoginViewModel
-<div>
-    <h1>Вход</h1>
-    <form asp-area="" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewBag.ReturnUrl" method="post">
-        <div asp-validation-summary="All"></div>
-        <div>
-            <label asp-for="UserName"></label>
-            <input asp-for="UserName"/>
-            <span asp-validation-for="UserName"></span>
+
+<div class="block_standart login">
+    <div class="container">
+        <div class="intro_container">
+            <h1 class="title">Вход</h1><br>
+            <form asp-area="" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewBag.ReturnUrl" class="login_form" method="post">
+                <div asp-validation-summary="All" class="form_error label"></div>
+                <div class="div_input">
+                    <label class="label login_label text_input_label" asp-for="UserName"></label><br>
+                    <input class="mc_input" asp-for="UserName" /><br>
+                </div>
+                <div class="div_input">
+                    <label class="label login_label text_input_label" asp-for="Password"></label><br>
+                    <input class="mc_input" asp-for="Password" /><br>
+                </div>
+                <label class="label login_label mc_checkbox_container" asp-for="RememberMe">
+                    Запомнить меня
+                    <input type="checkbox" asp-for="RememberMe" /><br>
+                    <span class="mc_checkbox"></span>
+                </label>
+                <div class="div_input">
+                    <button class="mc_button login_button" type="submit">
+                        <span class="mc_button_title">Войти</span>
+                    </button>
+                </div>
+            </form>
         </div>
-        <div>
-            <label asp-for="Password"></label>
-            <input asp-for="Password" />
-            <span asp-validation-for="Password"></span>
-        </div>
-        <div>
-            <label asp-for="RememberMe"></label>
-            <input asp-for="RememberMe" />
-            <span asp-validation-for="RememberMe"></span>
-        </div>
-        <input type="submit" value="Войти"/>
-    </form>
+    </div>
 </div>
