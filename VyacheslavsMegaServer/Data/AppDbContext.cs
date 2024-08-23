@@ -21,7 +21,7 @@ namespace VyacheslavsMegaServer.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseMySQL("server=localhost;user=root;password=root;database=vms_db;");
+            optionsBuilder.UseMySQL("server=localhost;user=root;password=root;database=vms_db;");
             optionsBuilder.UseLazyLoadingProxies(true);
         }
 
