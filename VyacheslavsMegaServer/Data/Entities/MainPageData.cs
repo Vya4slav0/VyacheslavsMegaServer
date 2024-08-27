@@ -8,6 +8,11 @@ namespace VyacheslavsMegaServer.Data.Entities
         [MaxLength(80)]
         public string Title { get; set; }
 
+        [MaxLength(100)]
+        public string ErrorMessage { get; set; }
+
+        public bool ShowErrorMessage { get; set; }
+
         public string ServerAddress { get; set; }
 
         [MaxLength(30)]

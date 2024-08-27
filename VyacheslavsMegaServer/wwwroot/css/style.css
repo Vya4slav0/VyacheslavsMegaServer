@@ -51,6 +51,19 @@ body {
     background-color: #222;
 }
 
+.minecraft_font {
+    font-family: minecraft;
+    font-optical-sizing: auto;
+    font-style: normal;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    line-height: 1.4;
+}
+
+.font_size_normal {
+    font-size: 20px;
+}
+
 h1,
 h2,
 h3,
@@ -60,15 +73,8 @@ h6 {
     margin: 0;
 }
 
-h2 {
+.section_header {
     position: relative;
-
-    font-family: minecraft;
-    font-optical-sizing: auto;
-    font-style: normal;
-    letter-spacing: 1px;
-    word-spacing: 3px;
-    line-height: 1.1;
 
     text-align: center;
     color: white;
@@ -226,14 +232,6 @@ header {
 }
 
 .section_text {
-    font-family: minecraft;
-    font-optical-sizing: auto;
-    font-size: 20px;
-    font-style: normal;
-    letter-spacing: 1px;
-    word-spacing: 3px;
-
-    line-height: 1.5;
     color: whitesmoke;
     text-align: center;
 }

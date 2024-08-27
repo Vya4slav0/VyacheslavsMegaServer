@@ -80,6 +80,8 @@ namespace VyacheslavsMegaServer.Data
             {
                 Id = 1,
                 PageTitle = "V-Server",
+                ErrorMessage = "",
+                ShowErrorMessage = false,
                 Title = "Открой для себя мир Minecraft с\r\nVyacheslav's mega server",
                 YellowHint = "Теперь с модами",
                 ServerAddress = "109.248.157.54:25565",

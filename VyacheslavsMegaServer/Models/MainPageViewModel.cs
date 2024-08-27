@@ -6,6 +6,10 @@ namespace VyacheslavsMegaServer.Models
     {
         public string Title { get; set; }
 
+        public string ErrorMessage { get; set; }
+
+        public bool ShowErrorMessage { get; set; }
+
         public string ServerAddress { get; set; }
         
         public string YellowHint { get; set; }

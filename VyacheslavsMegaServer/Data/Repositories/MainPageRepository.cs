@@ -19,6 +19,8 @@ namespace VyacheslavsMegaServer.Data.Repositories
             return new MainPageViewModel()
             {
                 Title = data.Title.Replace("\n", "<br>"),
+                ErrorMessage = data.ErrorMessage,
+                ShowErrorMessage = data.ShowErrorMessage,
                 YellowHint = data.YellowHint.Replace("\n", "<br>"),
                 ServerAddress = data.ServerAddress,
                 Description = data.Description.Replace("\n", "<br>"),
