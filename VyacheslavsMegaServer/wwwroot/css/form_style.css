@@ -1,0 +1,50 @@
+﻿@import url("mc_form_elements/mc_button.css");
+@import url("mc_form_elements/mc_text_input_elements.css");
+@import url("mc_form_elements/mc_checkbox.css");
+
+.mc_form_font_standart {
+    font-family: minecraft;
+    font-optical-sizing: auto;
+    font-size: 14pt;
+    font-style: normal;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+}
+
+.element_label {
+    /*Use with mc_form_font_standart*/
+    margin: 0 3px 0 3px;
+    color: whitesmoke;
+    text-shadow: 2px 2px #3f3f3f;
+}
+
+.form_error {
+    /*Use with mc_form_font_standart*/
+    text-align: center;
+    color: #aa0000;
+    text-shadow: 2px 2px #2a0000;
+}
+
+.form_part_left_aligment {
+    text-align: left;
+}
+
+.form_part_center_aligment {
+    text-align: center;
+}
+
+.form_next_block {
+    margin-top: 15px;
+}
+
+.wide_element {
+    width: 100%;
+}
+
+.labeled_element {
+    margin-top: 5px;
+}
+
+.form_small {
+    max-width: 50%;
+}
