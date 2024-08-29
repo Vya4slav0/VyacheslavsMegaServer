@@ -1,7 +1,10 @@
-﻿<title>V-Server</title>
+﻿<title>@(ViewBag.PageTitle ?? "Vyacheslav\'s mega server")</title>
 <meta charset="UTF-8" />
 <meta name="author" content="Vyacheslav The Best" />
-<meta name="keywords" content="Vyacheslav, minecraft" />
+@if (ViewBag.Keywords != null)
+{
+    <meta name="keywords" content="@ViewBag.Keywords" />
+}
 @if (ViewBag.Description != null)
 {
     <meta name="description" content="@ViewBag.Description" />   
