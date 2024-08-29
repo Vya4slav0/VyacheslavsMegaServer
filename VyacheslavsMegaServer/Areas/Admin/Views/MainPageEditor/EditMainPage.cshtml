@@ -1,29 +1,59 @@
 ﻿@model MainPageViewModel
 
-<div class="container">
-    <form asp-area="Admin" asp-controller="">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" /><br>
-
-        <label asp-for="YellowHint"></label>
-        <input asp-for="YellowHint" /><br>
-
-        <label asp-for="ErrorMessage"></label>
-        <input asp-for="ErrorMessage" />
-
-        <label asp-for="ShowErrorMessage"></label>
-        <input asp-for="ShowErrorMessage" /><br>
-
-        <label asp-for="ServerAddress"></label>
-        <input asp-for="ServerAddress" /><br>
-
-        <label asp-for="ServerAddress"></label>
-        <input asp-for="ServerAddress" /><br>
-
-        <label asp-for="Description"></label>
-        <input asp-for="Description" /><br>
-
-        <button type="submit">Сохранить</button>
-        <a>Назад</a>
-    </form>
+<<div class="block_big first_slide_big">
+    <div class="container">
+        <div class="intro_container">
+            <h1 class="title">Содержание главной страницы</h1><br>
+            <form asp-area="Admin" asp-controller="" class="center_element">
+                <div asp-validation-summary="All" class="form_error"></div>
+                <div class="form_part_left_aligment">
+                    <label class="element_label mc_form_font_standart" asp-for="Title"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="Title" />
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="YellowHint"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="YellowHint" /><br>
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="ErrorMessage"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="ErrorMessage" />
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart mc_checkbox_container" asp-for="ShowErrorMessage">
+                        @Html.DisplayNameFor(x => x.ShowErrorMessage)
+                        <input asp-for="ShowErrorMessage" /><br>
+                        <span class="mc_checkbox"></span>
+                    </label>
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="ServerAddress"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="ServerAddress" /><br>
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="Description"></label>
+                    <textarea class="mc_text_input_space mc_form_font_standart mc_textarea labeled_element" asp-for="Description" ></textarea><br>
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="PageTitle"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="PageTitle" /><br>
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="MetatagDescription"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="MetatagDescription" /><br>
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="MetatagKeywords"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="MetatagKeywords" /><br>
+                </div>
+                <div class="form_part_center_aligment form_next_block">
+                    <button class="mc_button  wide_element" type="submit">
+                        <span class="mc_button_title mc_form_font_standart">Сохранить</span>
+                    </button>
+                </div>
+                <div class="form_next_block">
+                    <a href="/admin" class="white_link mc_form_font_standart">Назад</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

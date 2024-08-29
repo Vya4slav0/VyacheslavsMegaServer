@@ -16,12 +16,12 @@
                 </div>
                 <div class="form_part_center_aligment form_next_block">
                     <label class="element_label mc_form_font_standart mc_checkbox_container" asp-for="RememberMe">
-                        @Html.DisplayNameFor(m => m.RememberMe)
-                    <input type="checkbox" asp-for="RememberMe" /><br>
+                        @Html.DisplayNameFor(x => x.RememberMe)
+                    <input asp-for="RememberMe" /><br>
                     <span class="mc_checkbox"></span>
                     </label>
                 </div>
-                <div class="form_part_left_aligment form_next_block">
+                <div class="form_part_center_aligment form_next_block">
                     <button class="mc_button  wide_element" type="submit">
                         <span class="mc_button_title mc_form_font_standart">Войти</span>
                     </button>

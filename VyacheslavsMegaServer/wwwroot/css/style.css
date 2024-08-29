@@ -135,6 +135,15 @@ header {
     justify-content: center;
 }
 
+.first_slide_big {
+    margin-top: 30px; 
+}
+
+.block_big {
+    height: fit-content;
+    padding: 70px 0;
+}
+
 /*INTRO*/
 .intro {
     background-image: url(../img/backgrounds/intro1.png);
@@ -239,6 +248,10 @@ header {
 }
 
 .white_link {
+    color: whitesmoke;
+}
+
+.white_link:visited {
     color: whitesmoke;
 }
 
