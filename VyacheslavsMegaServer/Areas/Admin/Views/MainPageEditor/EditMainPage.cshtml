@@ -4,8 +4,8 @@
     <div class="container">
         <div class="intro_container">
             <h1 class="title">Содержание главной страницы</h1><br>
-            <form asp-area="Admin" asp-controller="" class="center_element">
-                <div asp-validation-summary="All" class="form_error"></div>
+            <form asp-area="Admin" asp-controller="MainPageEditor" asp-action="EditMainPage" class="center_element">
+                <div asp-validation-summary="All" class="form_error mc_form_font_standart"></div>
                 <div class="form_part_left_aligment">
                     <label class="element_label mc_form_font_standart" asp-for="Title"></label>
                     <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="Title" />

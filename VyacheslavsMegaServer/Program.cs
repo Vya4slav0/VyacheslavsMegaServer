@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using VyacheslavsMegaServer.Data;
+using VyacheslavsMegaServer.Data.Repositories;
 using VyacheslavsMegaServer.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,8 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/account/login";
     options.AccessDeniedPath = "/account/denied";
 });
+
+builder.Services.AddTransient<MainPageRepository>();
 
 var app = builder.Build();
 

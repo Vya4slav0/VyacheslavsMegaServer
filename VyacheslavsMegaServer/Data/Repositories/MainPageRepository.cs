@@ -16,17 +16,23 @@ namespace VyacheslavsMegaServer.Data.Repositories
         {
             MainPageData data = _db.MainPageData.OrderBy(m => m.Id).Last();
 
-            return new MainPageViewModel()
-            {
-                Title = data.Title.Replace("\n", "<br>"),
-                ErrorMessage = data.ErrorMessage,
-                ShowErrorMessage = data.ShowErrorMessage,
-                YellowHint = data.YellowHint.Replace("\n", "<br>"),
-                ServerAddress = data.ServerAddress,
-                Description = data.Description.Replace("\n", "<br>"),
-                Contacts = data.Contacts.ToList(),
-                Creator = data.Contacts.First()
-            };
+            return new MainPageViewModel(data);
+        }
+
+        public async Task SaveMainPage(MainPageViewModel viewModel)
+        {
+            MainPageData data = _db.MainPageData.OrderBy(m => m.Id).Last();
+            data.Title = viewModel.Title;
+            data.Description = viewModel.Description;
+            data.YellowHint = viewModel.YellowHint;
+            data.ErrorMessage = viewModel.ErrorMessage;
+            data.ShowErrorMessage = viewModel.ShowErrorMessage;
+            data.ServerAddress = viewModel.ServerAddress;
+            data.Description = viewModel.Description;
+            data.PageTitle = viewModel.PageTitle;
+            data.MetatagDescription = viewModel.MetatagDescription;
+            data.MetatagKeywords = viewModel.MetatagKeywords;
+            await _db.SaveChangesAsync();
         }
     }
 }
