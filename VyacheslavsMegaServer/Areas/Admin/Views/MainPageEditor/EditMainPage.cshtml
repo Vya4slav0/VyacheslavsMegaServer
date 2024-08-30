@@ -1,5 +1,7 @@
 ﻿@model MainPageViewModel
 
+<script src="~/js/ckeditor/ckeditor.js"></script>
+
 <<div class="block_big first_slide_big">
     <div class="container">
         <div class="intro_container">
@@ -31,7 +33,7 @@
                 </div>
                 <div class="form_part_left_aligment form_next_block">
                     <label class="element_label mc_form_font_standart" asp-for="Description"></label>
-                    <textarea class="mc_text_input_space mc_form_font_standart mc_textarea labeled_element" asp-for="Description" ></textarea><br>
+                    <textarea class="mc_text_input_space mc_form_font_standart mc_textarea labeled_element" id="description" asp-for="Description" ></textarea><br>
                 </div>
                 <div class="form_part_left_aligment form_next_block">
                     <label class="element_label mc_form_font_standart" asp-for="PageTitle"></label>
@@ -51,9 +53,16 @@
                     </button>
                 </div>
                 <div class="form_next_block">
-                    <a href="/admin" class="white_link mc_form_font_standart">Назад</a>
+                    <a href="/admin" class="white mc_form_font_standart">Назад</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = function(){
+        let newCkEditor = CKEDITOR.replace('description', { contentsCss: 'mc_contents.css' });
+        newCkEditor.updateElement();
+    }
+</script>

@@ -1,0 +1,67 @@
+﻿h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+.minecraft_font {
+    font-family: minecraft;
+    font-optical-sizing: auto;
+    font-style: normal;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    line-height: 1.4;
+}
+
+.font_size_normal {
+    font-size: 20px;
+}
+
+.section_header {
+    position: relative;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px #3f3f3f;
+}
+
+.section_text {
+    color: whitesmoke;
+    text-align: center;
+}
+
+.white {
+    color: whitesmoke;
+}
+
+.white:visited {
+    color: whitesmoke;
+}
+
+a {
+    color: inherit;
+}
+
+li p { 
+    margin: 0;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+.nav a {
+    font-family: minecraft;
+    color: lightgray;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px;
+}
+
+.nav a:hover {
+    text-shadow: 2px 2px #202013CC;
+    color: #FFFFA0;
+}

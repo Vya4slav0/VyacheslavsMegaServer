@@ -18,7 +18,7 @@ namespace VyacheslavsMegaServer.Data.Entities
         [MaxLength(30)]
         public string YellowHint { get; set; }
 
-        [MaxLength(500)]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         #region Navigations

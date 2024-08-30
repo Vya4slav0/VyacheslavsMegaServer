@@ -30,11 +30,7 @@
     <div class="container">
         <div class="section">
             <h2 class="minecraft_font section_header">О проекте</h2>
-            <p class="minecraft_font font_size_normal section_text">
-                Vyacheslav's mega server – бесплатный майнкрафт сервер организации "Vyacheslav's
-                engineering company"
-                (VEC), созданный на платформе <a class="white_link" href="https://kpvk.edu.kz">Костанайского политехнического высшего колледжа</a> самим Вячеславом.</p>
-            <p class="minecraft_font font_size_normal section_text">@Html.Raw(Model.Description)</p>
+            <div class="minecraft_font font_size_normal white">@Html.Raw(Model.Description)</div>
             <p class="minecraft_font font_size_normal section_text">
                 Присоединяйтесь к нам по адресу @Model.ServerAddress и станьте частью нашего мира!
             </p>
@@ -69,13 +65,13 @@
             <h2 class="minecraft_font section_header">Контакты</h2>
             <div class="contacts_inner">
                 <img class="contacts_image" src="~/img/Evray.png" />
-                <div class="">
-                    <p class="contacts_text">
+                <div class="minecraft_font font_size_normal white">
+                    <p>
                         Вячеслав (Evray), создатель и администратор сервера:
                         @foreach (Link link in Model.Creator.Links)
                         {
                         <br>
-                            <p class ="contacts_text">@link.Description<a class="white_link" href="@Html.Raw(link.Url)">@link.Content</a></p>
+                            <p>@link.Description<a class="white" href="@Html.Raw(link.Url)">@link.Content</a></p>
                         } 
                     </p>
                 </div>
@@ -83,5 +79,3 @@
         </div>
     </div>
 </div>
-
-@await Html.PartialAsync("_ScriptsPartial")

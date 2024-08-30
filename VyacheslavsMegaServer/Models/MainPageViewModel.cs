@@ -14,7 +14,7 @@ namespace VyacheslavsMegaServer.Models
             ErrorMessage = mainPageData.ErrorMessage;
             ShowErrorMessage = mainPageData.ShowErrorMessage;
             ServerAddress = mainPageData.ServerAddress;
-            Description = mainPageData.Description.Replace("\n", "<br>");
+            Description = mainPageData.Description;
             Creator = mainPageData.Contacts.First();
             Contacts = mainPageData.Contacts.ToList();
 

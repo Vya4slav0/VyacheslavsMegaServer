@@ -1,3 +1,5 @@
+@import url("text_style.css");
+
 @font-face {
     font-family: 'minecraft-title';
     src: url(../fonts/minecraft_title.ttf);
@@ -17,7 +19,7 @@
         max-width: 90vw;
     }
 
-    .login_form {
+    .form_small {
         max-width: 90%;
     }
 }
@@ -31,7 +33,7 @@
         max-width: 85vw;
     }
 
-    .login_form {
+    .form_small {
         max-width: 50%;
     }
 }
@@ -49,40 +51,6 @@ html {
 body {
     margin: 0;
     background-color: #222;
-}
-
-.minecraft_font {
-    font-family: minecraft;
-    font-optical-sizing: auto;
-    font-style: normal;
-    letter-spacing: 1px;
-    word-spacing: 3px;
-    line-height: 1.4;
-}
-
-.font_size_normal {
-    font-size: 20px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0;
-}
-
-.section_header {
-    position: relative;
-
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px #3f3f3f;
-}
-
-a:visited {
-    color: inherit;
 }
 
 .container {
@@ -113,20 +81,6 @@ header {
     box-shadow: 0px 0px 6px 10px rgba(245, 245, 245, 0.2);
     background-size: 100%;
     background-color: rgba(245, 245, 245, 0.2);
-}
-
-.nav a {
-    font-family: minecraft;
-    color: lightgray;
-    text-decoration: none;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 10px;
-}
-
-.nav a:hover {
-    text-shadow: 2px 2px #202013CC;
-    color: #FFFFA0;
 }
 
 .first_slide {
@@ -242,19 +196,6 @@ header {
     margin: 35px auto;
 }
 
-.section_text {
-    color: whitesmoke;
-    text-align: center;
-}
-
-.white_link {
-    color: whitesmoke;
-}
-
-.white_link:visited {
-    color: whitesmoke;
-}
-
 .section_list {
     font-family: minecraft;
     font-optical-sizing: auto;
@@ -268,7 +209,6 @@ header {
     text-align: left;
     margin-left: 50px;
 }
-
 
 /*REPORT FORM*/
 .report {
@@ -302,19 +242,6 @@ header {
 
 .contacts_image {
     height: 400px;
-}
-
-.contacts_text {
-    font-family: minecraft;
-    font-optical-sizing: auto;
-    font-size: 20px;
-    font-style: normal;
-    letter-spacing: 1px;
-    word-spacing: 3px;
-
-    line-height: 1.5;
-    color: whitesmoke;
-    text-align: right;
 }
 
 /*LOGIN*/
