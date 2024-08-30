@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using VyacheslavsMegaServer.Data.Entities;
+using VyacheslavsMegaServer.Service;
 
 namespace VyacheslavsMegaServer.Data
 {
@@ -21,7 +22,7 @@ namespace VyacheslavsMegaServer.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;user=root;password=root;database=vms_db;");
+            optionsBuilder.UseMySQL(ProjectConfig.ConnectionString);
             optionsBuilder.UseLazyLoadingProxies(true);
         }
 
