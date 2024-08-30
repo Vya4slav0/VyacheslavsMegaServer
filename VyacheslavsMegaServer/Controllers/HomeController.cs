@@ -16,7 +16,11 @@ namespace VyacheslavsMegaServer.Controllers
 
         public IActionResult Index()
         {
-            return View(new MainPageRepository().GetMainPageViewModel());
+            MainPageViewModel model = new MainPageRepository().GetMainPageViewModel();
+            ViewBag.PageTitle = model.PageTitle;
+            ViewBag.Keywords = model.MetatagKeywords;
+            ViewBag.Description = model.MetatagDescription;
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
