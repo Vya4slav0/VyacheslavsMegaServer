@@ -13,6 +13,8 @@ namespace VyacheslavsMegaServer.Data.Entities
 
         public bool ShowErrorMessage { get; set; }
 
+        public bool ShowDownloadButton { get; set; }
+
         public string ServerAddress { get; set; }
 
         [MaxLength(30)]
