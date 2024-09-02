@@ -11,6 +11,7 @@ namespace VyacheslavsMegaServer.Models
         {
             Title = mainPageData.Title.Replace("\n", "<br>");
             YellowHint = mainPageData.YellowHint.Replace("\n", "<br>");
+            ShowDownloadButton = mainPageData.ShowDownloadButton;
             ErrorMessage = mainPageData.ErrorMessage;
             ShowErrorMessage = mainPageData.ShowErrorMessage;
             ServerAddress = mainPageData.ServerAddress;
@@ -32,6 +33,9 @@ namespace VyacheslavsMegaServer.Models
 
         [Display(Name = "Показать текст ошибки")]
         public bool ShowErrorMessage { get; set; }
+
+        [Display(Name = "Показать кнопку скачивания")]
+        public bool ShowDownloadButton { get; set; }
 
         [Required]
         [Display(Name = "Адрес сервера")]

@@ -16,11 +16,14 @@
             {
                 <p class="minecraft_font font_size_normal error">@Model.ErrorMessage</p>
             }
-            <a href="~/downloads/Vyacheslav's Mega Server.zip">
-                <button class="mc_button download_pack_link_button">
-                    <span class="mc_button_title mc_form_font_standart">Скачать сборку</span>
-                </button>
-            </a>
+            @if (Model.ShowDownloadButton)
+            {
+                <a href="~/downloads/Vyacheslav's Mega Server.zip">
+                    <button class="mc_button download_pack_link_button">
+                        <span class="mc_button_title mc_form_font_standart">Скачать сборку</span>
+                    </button>
+                </a>
+            }
             <h2 class="subtitle">IP-адрес сервера: @Model.ServerAddress</h2>
         </div>
     </div>

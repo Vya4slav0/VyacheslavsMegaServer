@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using VyacheslavsMegaServer.Models;
 
 namespace VyacheslavsMegaServer.Data.Entities
 {
@@ -26,5 +27,19 @@ namespace VyacheslavsMegaServer.Data.Entities
         #region Navigations
         public virtual ICollection<Contact> Contacts { get; set; } = null!;
         #endregion
+
+        public void GetValuesFromVM(MainPageViewModel viewModel)
+        {
+            Title = viewModel.Title;
+            YellowHint = viewModel.YellowHint;
+            ShowDownloadButton = viewModel.ShowDownloadButton;
+            ErrorMessage = viewModel.ErrorMessage;
+            ShowErrorMessage = viewModel.ShowErrorMessage;
+            ServerAddress = viewModel.ServerAddress;
+            Description = viewModel.Description;
+            PageTitle = viewModel.PageTitle;
+            MetatagDescription = viewModel.MetatagDescription;
+            MetatagKeywords = viewModel.MetatagKeywords;
+        }
     }
 }

@@ -17,6 +17,13 @@
                     <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="YellowHint" /><br>
                 </div>
                 <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart mc_checkbox_container" asp-for="ShowDownloadButton">
+                        @Html.DisplayNameFor(x => x.ShowDownloadButton)
+                        <input asp-for="ShowDownloadButton" /><br>
+                        <span class="mc_checkbox"></span>
+                    </label>
+                </div>
+                <div class="form_part_left_aligment form_next_block">
                     <label class="element_label mc_form_font_standart" asp-for="ErrorMessage"></label>
                     <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="ErrorMessage" />
                 </div>
