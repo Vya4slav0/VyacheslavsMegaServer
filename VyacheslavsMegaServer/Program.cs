@@ -4,19 +4,20 @@ using System.Configuration;
 using VyacheslavsMegaServer.Data;
 using VyacheslavsMegaServer.Data.Repositories;
 using VyacheslavsMegaServer.Service;
-using static Org.BouncyCastle.Math.EC.ECCurve;
 
 internal class Program
 {
     private static IConfiguration? _configuration;
     private static void Main(string[] args)
     {
-        ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
-        configurationBuilder.AddJsonFile("appsettings.json").Build().Bind("Project", new ProjectConfig());
-
-        _configuration = configurationBuilder.Build();
-
         var builder = WebApplication.CreateBuilder(args);
+
+        ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
+
+        configurationBuilder.AddJsonFile("appsettings.json")
+            .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
+            .Build().Bind("Project", new ProjectConfig());
+        _configuration = configurationBuilder.Build();
 
         // Add services to the container.
         builder.Services.AddAuthorization(x =>
