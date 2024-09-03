@@ -1,0 +1,18 @@
+﻿@model StatusCodeViewModel
+
+<div class="block_standart status_code_page first_slide">
+    <div class="container">
+        <div class="intro_container dark_area">
+            <div>
+                <style>
+                    .title::after {
+                        content: "@Html.Raw(Model.StatusMessage)";
+                    }
+                </style>
+                <h1 class="title">Ой, ошибка @Model.StatusCode<br>пришла</h1>
+                <hr class="hr_intro" />
+                <a href="/" class="minecraft_font font_size_normal white">Вернуться на главную старницу</a>
+            </div>
+        </div>
+    </div>
+</div>

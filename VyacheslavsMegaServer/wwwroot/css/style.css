@@ -119,10 +119,6 @@ header {
     line-height: 1.5;
 }
 
-.title_container {
-    display: block;
-}
-
 .title::after {
     color: yellow;
     font-family: minecraft;
@@ -140,15 +136,15 @@ header {
 
 @keyframes pulse {
     0% {
-        transform: rotate(-19.5deg) translate(-120px, -15px) scale(1);
+        transform: rotate(-19.5deg) translate(-110px, -10px) scale(1);
     }
 
     50% {
-        transform: rotate(-19.5deg) translate(-120px, -15px) scale(1.1);
+        transform: rotate(-19.5deg) translate(-110px, -10px) scale(1.1);
     }
 
     100% {
-        transform: rotate(-19.5deg) translate(-120px, -15px) scale(1);
+        transform: rotate(-19.5deg) translate(-110px, -10px) scale(1);
     }
 }
 
@@ -251,4 +247,15 @@ header {
 
 .center_element {
     margin: auto auto;
+}
+
+.status_code_page {
+    background-image: url(../img/backgrounds/error.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.dark_area {
+    padding: 40px 0;
+    background-color: #000A;
 }
