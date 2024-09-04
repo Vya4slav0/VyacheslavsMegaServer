@@ -89,13 +89,14 @@ header {
     justify-content: center;
 }
 
-.first_slide_big {
-    margin-top: 30px; 
-}
-
 .block_big {
     height: fit-content;
     padding: 70px 0;
+}
+
+.block_big_first {
+    height: fit-content;
+    padding: 100px 0;
 }
 
 /*INTRO*/
@@ -169,7 +170,6 @@ header {
 .hr_intro {
     margin: 50px;
 }
-
 
 /*ABOUT*/
 .about {

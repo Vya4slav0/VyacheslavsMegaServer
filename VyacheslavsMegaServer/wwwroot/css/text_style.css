@@ -29,15 +29,18 @@ h6 {
 
 .section_text {
     color: whitesmoke;
+    text-shadow: 2px 2px #3f3f3f;
     text-align: center;
 }
 
 .white {
     color: whitesmoke;
+    text-shadow: 2px 2px #3f3f3f;
 }
 
 .white:visited {
     color: whitesmoke;
+    text-shadow: 2px 2px #3f3f3f;
 }
 
 a {

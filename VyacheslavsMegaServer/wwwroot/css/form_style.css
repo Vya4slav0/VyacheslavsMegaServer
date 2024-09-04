@@ -33,6 +33,10 @@
     text-align: center;
 }
 
+.form_part_right_aligment {
+    text-align: right;
+}
+
 .form_next_block {
     margin-top: 15px;
 }

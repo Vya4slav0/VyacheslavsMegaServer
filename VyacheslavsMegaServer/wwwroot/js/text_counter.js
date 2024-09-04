@@ -11,8 +11,8 @@ function onInput(event) {
         counter.style.textShadow = "#3F1515";
     }
     else {
-        counter.style.color = "inherit";
-        counter.style.textShadow = "inherit";
+        counter.style.color = "whitesmoke";
+        counter.style.textShadow = "2px 2px #3f3f3f";
     }
     input.value = input.substr(0, maxlength);
     currentLength.textContent = input.length;

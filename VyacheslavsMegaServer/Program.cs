@@ -46,6 +46,7 @@ internal class Program
         });
 
         builder.Services.AddTransient<MainPageRepository>();
+        builder.Services.AddTransient<UserReportsRepository>();
 
         var app = builder.Build();
 

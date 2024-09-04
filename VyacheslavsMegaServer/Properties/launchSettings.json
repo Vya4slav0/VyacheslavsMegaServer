@@ -3,7 +3,7 @@
     "http": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "home/error",
+      "launchUrl": "UserReports/New",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
