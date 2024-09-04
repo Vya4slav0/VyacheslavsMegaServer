@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using VyacheslavsMegaServer.Data.Entities.Interfaces;
 using VyacheslavsMegaServer.Models;
 
 namespace VyacheslavsMegaServer.Data.Entities
 {
-    public class MainPageData : Base.PageData
+    public class MainPageData : Base.PageData, FromVMConvertable<MainPageViewModel, MainPageData>
     {
         [MaxLength(80)]
         public string Title { get; set; }
@@ -28,7 +28,7 @@ namespace VyacheslavsMegaServer.Data.Entities
         public virtual ICollection<Contact> Contacts { get; set; } = null!;
         #endregion
 
-        public void GetValuesFromVM(MainPageViewModel viewModel)
+        public MainPageData GetValuesFromVM(MainPageViewModel viewModel)
         {
             Title = viewModel.Title;
             YellowHint = viewModel.YellowHint;
@@ -40,6 +40,7 @@ namespace VyacheslavsMegaServer.Data.Entities
             PageTitle = viewModel.PageTitle;
             MetatagDescription = viewModel.MetatagDescription;
             MetatagKeywords = viewModel.MetatagKeywords;
+            return this;
         }
     }
 }

@@ -20,8 +20,7 @@ namespace VyacheslavsMegaServer.Data.Repositories
 
         public async Task SaveMainPage(MainPageViewModel viewModel)
         {
-            MainPageData data = _db.MainPageData.OrderBy(m => m.Id).Last();
-            data.GetValuesFromVM(viewModel);
+            _db.MainPageData.OrderBy(m => m.Id).Last().GetValuesFromVM(viewModel);
             await _db.SaveChangesAsync();
         }
     }
