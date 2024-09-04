@@ -3,7 +3,6 @@
     "http": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "UserReports/successsending",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
