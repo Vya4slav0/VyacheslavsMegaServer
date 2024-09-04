@@ -26,13 +26,20 @@ namespace VyacheslavsMegaServer.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel(ErrorViewModel.PageType.Exception) 
+            { 
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier 
+            });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult StatusCodePage(int code)
+        public IActionResult StatusCode(int code)
         {
-            return View("StatusCode", new StatusCodeViewModel(code));
+            return View("Error", new ErrorViewModel(ErrorViewModel.PageType.StatusCode)
+            {
+                StatusCode = code,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            });
         }
     }
 }
