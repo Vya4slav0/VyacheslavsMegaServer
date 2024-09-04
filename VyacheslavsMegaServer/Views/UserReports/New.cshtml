@@ -1,10 +1,11 @@
-﻿@model UserReport
+﻿@model UserReportViewModel
 
 <div class="block_big_first report">
     <div class="container">
         <div>
             <h2 class="minecraft_font section_header">Не работает сервер? Сообщите о сбоях:</h2>
-            <form method="post">
+            <form method="post" asp-action="New">
+                <div asp-validation-summary="All" class="form_error mc_form_font_standart"></div>
                 <div class="form_part_left_aligment">
                     <label class="element_label mc_form_font_standart" asp-for="Subject"></label><br />
                     <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" asp-for="Subject" />
