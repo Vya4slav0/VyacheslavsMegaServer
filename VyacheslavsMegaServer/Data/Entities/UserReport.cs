@@ -6,11 +6,18 @@ namespace VyacheslavsMegaServer.Data.Entities
 {
     public class UserReport : Base.EntityBase, FromVMConvertable<UserReportViewModel, UserReport>
     {
+        public UserReport() 
+        {
+            TimestampCreated = DateTime.Now;
+        }
+
         [MaxLength(50)]
         public string Subject { get; set; }
 
         [MaxLength(500)]
         public string ReportText { get; set; }
+
+        public DateTime TimestampCreated { get; private set; }
 
         public UserReport GetValuesFromVM(UserReportViewModel viewModel)
         {
