@@ -28,3 +28,17 @@
     text-shadow: 2px 2px #000A;
     box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
 }
+
+.mc_button:disabled {
+    background: #333 url('../../img/bgbtn_dis.png') center / cover;
+}
+
+.mc_button:disabled span.mc_button_title {
+    box-shadow: none;
+    color: #AAAAAA;
+    text-shadow: 2px 2px #2A2A2A;
+}
+
+.mc_button:disabled span.mc_button_title:hover {
+    background: none;   
+}
