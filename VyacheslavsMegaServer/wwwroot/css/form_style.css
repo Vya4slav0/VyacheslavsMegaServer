@@ -1,6 +1,7 @@
 ﻿@import url("mc_form_elements/mc_button.css");
 @import url("mc_form_elements/mc_text_input_elements.css");
 @import url("mc_form_elements/mc_checkbox.css");
+@import url("mc_form_elements/mc_listbox.css");
 
 .mc_form_font_standart {
     font-family: minecraft;
@@ -47,4 +48,25 @@
 
 .labeled_element {
     margin-top: 5px;
+}
+
+.two_columns_form {
+    display: flex;
+    flex-direction: row;
+}
+
+.column70 {
+    width: 70%;
+    padding: 0 5px;
+}
+
+.column30 {
+    width: 30%;
+    padding: 0 5px;
+}
+
+.last_fill_column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }

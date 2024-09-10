@@ -3,8 +3,9 @@
     "http": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "Admin/UserReportsViewer/Index",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Staging"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5044"

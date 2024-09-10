@@ -1,0 +1,89 @@
+﻿@model UserReportsViewerViewModel
+
+<div class="block_big_first">
+    <div class="container">
+        <div class="intro_container">
+            <h1 class="title">Отчёты пользователей</h1>
+            <br/>
+            <form asp-area="Admin" asp-controller="UserReportsViewer" asp-action="RemoveSelected">
+                <div class="two_columns_form">
+                    <div class="column70 form_part_left_aligment">
+                        <div>
+                            <label class ="element_label mc_form_font_standart">Тема</label>
+                            <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" 
+                                   id="reportSubject"
+                                   readonly />
+                        </div>
+                            <div class="form_next_block last_fill_column">
+                            <label class="element_label mc_form_font_standart">Описание проблемы</label>
+                            <textarea class="mc_text_input_space mc_form_font_standart wide_element mc_textarea labeled_element"
+                                      id="reportText"
+                                      readonly>
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="column30">
+                        <div class="last_fill_column form_part_left_aligment">
+                            <label class="element_label mc_form_font_standart"
+                                    asp-for="ReportsId"></label>
+                            <select class="labeled_element mc_listbox mc_form_font_standart"
+                                    asp-for="SelectedReportId"
+                                    asp-items="Model.ReportsId"
+                                    id="reportId"
+                                    size="6"
+                                    onclick="updateTextarea()"
+                                    onchange="updateTextarea()">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_part_center_aligment form_next_block">
+                    <button id="submit" class="mc_button wide_element" type="submit" disabled>
+                        <span class="mc_button_title mc_form_font_standart">Удалить выбранный</span>
+                    </button>
+                </div>
+                <div class="form_next_block">
+                    <a href="/admin" class="white mc_form_font_standart">Назад</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    class ReportData {
+        constructor(id, subject, text) {
+            this.id = id;
+            this.subject = subject;
+            this.text = text;
+        }
+    }
+
+    const Reports = [
+        @foreach (var report in Model.ReportsData)
+        {
+        @:new ReportData(@report.Id, '@Html.Raw(report.Subject)', '@Html.Raw(report.ReportText)'),
+        }
+    ];
+   
+    const selectId = document.getElementById('reportId');
+    const textareaText = document.getElementById('reportText');
+    const inputSubject = document.getElementById('reportSubject');
+    const buttonSubmit = document.getElementById('submit');
+
+    function updateTextarea() {
+        const selectedId = selectId.value;
+
+        const selectedReport = Reports.find(r => r.id == selectedId);
+
+        if (selectedReport) {
+            textareaText.value = selectedReport.text;
+            inputSubject.value = selectedReport.subject;
+            buttonSubmit.removeAttribute('disabled');
+        } else {
+            textareaText.value = '';
+            inputSubject.value = selectedReport.subject;
+            buttonSubmit.setAttribute('disabled');
+        }
+    }
+</script>
