@@ -9,5 +9,10 @@ namespace VyacheslavsMegaServer.Controllers
         {
             return File("~/img/siteQR.png", "image/png");
         }
+
+        public IActionResult Wallpaper() 
+        {
+            return File("~img/win10wallpaper.jpg", "image/jpeg");
+        }
     }
 }

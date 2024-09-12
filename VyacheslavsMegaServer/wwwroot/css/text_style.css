@@ -65,6 +65,14 @@ ul {
     margin-left: 20px;
 }
 
+.higher_li:first-child {
+    margin-top: 0;
+}
+
+.higher_li {
+    margin-top: 7px;
+}
+
 .nav a {
     font-family: minecraft;
     color: lightgray;

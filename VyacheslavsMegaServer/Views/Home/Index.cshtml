@@ -67,14 +67,13 @@
             <div class="contacts_inner">
                 <img class="contacts_image" src="~/img/Evray.png" />
                 <div class="minecraft_font font_size_normal white">
-                    <p>
-                        Вячеслав (Evray), создатель и администратор сервера:
+                    <p>Вячеслав (Evray), создатель и администратор сервера:</p>
+                    <ul>
                         @foreach (Link link in Model.Creator.Links)
                         {
-                        <br>
-                            <p>@link.Description<a class="white" href="@Html.Raw(link.Url)">@link.Content</a></p>
+                            <li class="higher_li">@link.Description<a class="white" href="@Html.Raw(link.Url)">@link.Content</a></li>
                         } 
-                    </p>
+                    </ul>
                 </div>
             </div>
         </div>
