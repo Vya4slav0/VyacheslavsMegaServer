@@ -60,7 +60,7 @@ namespace VyacheslavsMegaServer.Data
 
             #endregion
 
-            modelBuilder.Entity<Link>().HasData(new
+            modelBuilder.Entity<Link>().HasData(new Link()
             {
                 Id = 1,
                 Url = "https://vk.com/sansei_1",
@@ -69,7 +69,7 @@ namespace VyacheslavsMegaServer.Data
                 ContactId = 1,
             });
 
-            modelBuilder.Entity<Contact>().HasData(new
+            modelBuilder.Entity<Contact>().HasData(new Contact()
             {
                 Id = 1,
                 DisplayName = "Вячеслав",

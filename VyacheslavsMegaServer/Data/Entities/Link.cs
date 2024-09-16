@@ -11,6 +11,7 @@ namespace VyacheslavsMegaServer.Data.Entities
         public string? Description { get; set; }
 
         #region Navigations
+        public int ContactId { get; set; }
         public virtual Contact? Contact { get; set; }
         #endregion
     }
