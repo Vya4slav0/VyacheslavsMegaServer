@@ -1,0 +1,53 @@
+﻿@model Contact
+
+<div class="block_big_first intro first_slide" id="intro">
+    <div class="container">
+        <div class="intro_container">
+            <form asp-area="Admin" asp-controller="ContactsEditor" asp-action="SaveContact" method="post">
+                <div asp-validation-summary="All" class="form_error mc_form_font_standart"></div>
+                <input class="invisible" asp-for="Id" readonly/>
+                <div class="form_part_left_aligment">
+                    <label class="element_label mc_form_font_standart" asp-for="DisplayName"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element" 
+                           asp-for="DisplayName" />
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="Description"></label>
+                    <input class="mc_text_input_space mc_form_font_standart wide_element labeled_element"
+                           asp-for="Description" />
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart" asp-for="DescriptionLarge"></label>
+                    <textarea class="mc_text_input_space mc_form_font_standart wide_element labeled_element mc_textarea" 
+                              asp-for="DescriptionLarge">
+                    </textarea>
+                </div>
+                <div class="last_fill_column form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart"
+                           asp-for="UserId"></label>
+                    <select class="labeled_element mc_listbox mc_form_font_standart"
+                            asp-for="UserId"
+                            asp-items="ViewBag.SelectUserItems"
+                            size="5">
+                    </select>
+                </div>
+                <div class="form_part_left_aligment form_next_block">
+                    <label class="element_label mc_form_font_standart mc_checkbox_container" asp-for="ShowContact">
+                        @Html.DisplayNameFor(x => x.ShowContact)
+                        <input asp-for="ShowContact" /><br>
+                        <span class="mc_checkbox"></span>
+                    </label>
+                </div>
+
+                <div class="form_part_center_aligment form_next_block">
+                    <button class="mc_button wide_element" type="submit">
+                        <span class="mc_button_title mc_form_font_standart">Сохранить</span>
+                    </button>
+                </div>
+                <div class="form_next_block">
+                    <a href="/admin" class="white mc_form_font_standart">Назад</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

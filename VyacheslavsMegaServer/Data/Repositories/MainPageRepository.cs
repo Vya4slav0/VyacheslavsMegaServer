@@ -15,7 +15,7 @@ namespace VyacheslavsMegaServer.Data.Repositories
         public MainPageViewModel GetMainPageViewModel()
         {
             MainPageData data = _db.MainPageData.OrderBy(m => m.Id).Last();
-            return new MainPageViewModel(data);
+            return new MainPageViewModel(data, new ContactsInfoRepository());
         }
 
         public async Task SaveMainPage(MainPageViewModel viewModel)

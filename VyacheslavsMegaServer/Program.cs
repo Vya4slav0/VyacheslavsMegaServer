@@ -47,6 +47,7 @@ internal class Program
 
         builder.Services.AddTransient<MainPageRepository>();
         builder.Services.AddTransient<UserReportsRepository>();
+        builder.Services.AddTransient<ContactsInfoRepository>();
 
         var app = builder.Build();
 

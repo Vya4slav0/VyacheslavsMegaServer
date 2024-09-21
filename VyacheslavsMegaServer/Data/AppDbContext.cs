@@ -73,9 +73,10 @@ namespace VyacheslavsMegaServer.Data
             {
                 Id = 1,
                 DisplayName = "Вячеслав",
-                Description = "Царь и бог сего сервера",
+                Description = "Царь и бог этого сервера",
+                DescriptionLarge = "",
                 UserId = "d4bc75a9-ca48-45aa-a3f2-2ea5886ce303",
-                MainPageId = 1
+                ShowContact = true,
             });
 
             modelBuilder.Entity<MainPageData>().HasData(new MainPageData()

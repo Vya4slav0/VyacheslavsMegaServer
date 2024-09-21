@@ -253,3 +253,23 @@ header {
     padding: 40px 0;
     background-color: #000A;
 }
+
+.tr_header td {
+    text-align: center !important;
+}
+
+.mc_table td {
+    background: #8b8b8b;
+    border: 4px solid;
+    border-color: #353535 white white #353535;
+    padding: 10px 5px;
+}
+
+.mc_table {
+    border-spacing: 0;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    background: #c6c6c6;
+    box-shadow: inset 5px 5px white, inset -5px -5px #565656;
+}

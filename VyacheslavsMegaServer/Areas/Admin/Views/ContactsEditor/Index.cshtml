@@ -1,0 +1,32 @@
+﻿@model ContactsEditorViewModel
+
+<div class="block_big_first">
+    <div class="container">
+        <div class="intro_container">
+            <h1 class="title">Редактор контактов</h1>
+            <br />
+            <table class="mc_form_font_standart white mc_table">
+                <tr class="tr_header">
+                    <td>Имя пользователя</td>
+                    <td>Отображаемое имя</td>
+                    <td>Описание</td>
+                    <td colspan="3">Действия</td>
+                </tr>
+                @foreach (Contact contact in Model.Contacts)
+                {
+                    <tr>
+                        <td class="align_left">@contact.User.UserName</td>
+                        <td class="align_left">@contact.DisplayName</td>
+                        <td class="align_left">@contact.Description</td>
+                        <td><a asp-action="ContactDetails" asp-route-contactId="@contact.Id">Редактировать</a></td>
+                        <td><a asp-action="ContactLinks" asp-route-contactId="@contact.Id">Редактировать ссылки</a></td>
+                        <td><a>Удалить</a></td>
+                    </tr>
+                }
+                <tr class="tr_header">
+                    <td colspan="6"><a asp-action="ContactDetails">Добавить контакт</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

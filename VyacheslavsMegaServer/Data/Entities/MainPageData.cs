@@ -24,10 +24,6 @@ namespace VyacheslavsMegaServer.Data.Entities
         [MaxLength(1000)]
         public string Description { get; set; }
 
-        #region Navigations
-        public virtual ICollection<Contact> Contacts { get; set; } = null!;
-        #endregion
-
         public MainPageData GetValuesFromVM(MainPageViewModel viewModel)
         {
             Title = viewModel.Title;

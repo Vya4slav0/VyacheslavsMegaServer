@@ -1,0 +1,31 @@
+﻿@model LinksEditorViewModel
+
+<div class="block_big_first">
+    <div class="container">
+        <div class="intro_container">
+            <h1 class="title">Редактор контактов</h1>
+            <br />
+            <table class="mc_form_font_standart white mc_table">
+                <tr class="tr_header">
+                    <td>URL</td>
+                    <td>Отображаемое значение</td>
+                    <td>Описание (префикс)</td>
+                    <td colspan="2">Действия</td>
+                </tr>
+                @foreach (Link link in Model.Links)
+                {
+                    <tr>
+                        <td class="align_left">@link.Url</td>
+                        <td class="align_left">@link.Content</td>
+                        <td class="align_left">@link.Description</td>
+                        <td><a asp-action="LinkDetails" asp-route-contactId="@link.Id">Редактировать</a></td>
+                        <td><a>Удалить</a></td>
+                    </tr>
+                }
+                <tr class="tr_header">
+                    <td colspan="5"><a asp-action="LinkDetails">Добавить ссылку</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

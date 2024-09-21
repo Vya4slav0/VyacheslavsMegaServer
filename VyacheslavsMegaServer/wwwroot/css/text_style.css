@@ -20,6 +20,10 @@ h6 {
     font-size: 20px;
 }
 
+.font_size_small {
+    font-size: 12px;
+}
+
 .section_header {
     position: relative;
     text-align: center;
@@ -85,4 +89,8 @@ ul {
 .nav a:hover {
     text-shadow: 2px 2px #202013CC;
     color: #FFFFA0;
+}
+
+.align_left {
+    text-align: left;
 }

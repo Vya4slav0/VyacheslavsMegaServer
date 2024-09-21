@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using VyacheslavsMegaServer.Data.Entities;
+using VyacheslavsMegaServer.Data.Repositories;
 
 namespace VyacheslavsMegaServer.Models
 {
@@ -7,7 +8,7 @@ namespace VyacheslavsMegaServer.Models
     {
         public MainPageViewModel() { }
 
-        public MainPageViewModel(MainPageData mainPageData)
+        public MainPageViewModel(MainPageData mainPageData, ContactsInfoRepository contactsInfoRepository)
         {
             Title = mainPageData.Title.Replace("\n", "<br>");
             YellowHint = mainPageData.YellowHint.Replace("\n", "<br>");
@@ -16,8 +17,7 @@ namespace VyacheslavsMegaServer.Models
             ShowErrorMessage = mainPageData.ShowErrorMessage;
             ServerAddress = mainPageData.ServerAddress;
             Description = mainPageData.Description;
-            Creator = mainPageData.Contacts.First();
-            Contacts = mainPageData.Contacts.ToList();
+            Creator = contactsInfoRepository.GetContactById(1).Result;
 
             PageTitle = mainPageData.PageTitle;
             MetatagDescription = mainPageData.MetatagDescription;
@@ -50,7 +50,5 @@ namespace VyacheslavsMegaServer.Models
         public string Description { get; set; }
         
         public Contact? Creator { get; set; }
-        
-        public List<Contact>? Contacts { get; set; }
     }
 }
