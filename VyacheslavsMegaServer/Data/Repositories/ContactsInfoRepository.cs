@@ -38,5 +38,20 @@ namespace VyacheslavsMegaServer.Data.Repositories
         {
             return await _db.Links.Where(l => l.ContactId == contactId).ToListAsync() ?? new List<Link>();
         }
+
+        public async Task<Link> GetLinkById(int linkId)
+        {
+            return await _db.Links.FirstAsync(l => l.Id == linkId);
+        }
+
+        public async Task SaveLink(Link link)
+        {
+            if (link.Id == 0)
+                _db.Entry(link).State = EntityState.Added;
+            else
+                _db.Entry(link).State = EntityState.Modified;
+
+            await _db.SaveChangesAsync();
+        }
     }
 }

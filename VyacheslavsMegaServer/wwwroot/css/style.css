@@ -273,3 +273,7 @@ header {
     background: #c6c6c6;
     box-shadow: inset 5px 5px white, inset -5px -5px #565656;
 }
+
+.table_container {
+    overflow-x: auto;
+}
