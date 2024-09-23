@@ -20,7 +20,7 @@
                             <td class="align_left">@link.Content</td>
                             <td class="align_left">@link.Description</td>
                             <td><a asp-action="LinkDetails" asp-route-linkId="@link.Id" asp-route-contactId="@ViewBag.ContactId">Редактировать</a></td>
-                            <td><a>Удалить</a></td>
+                            <td><a asp-action="RemoveLink" asp-route-linkId="@link.Id" asp-route-contactId="@ViewBag.ContactId">Удалить</a></td>
                         </tr>
                     }
                     <tr class="tr_header">

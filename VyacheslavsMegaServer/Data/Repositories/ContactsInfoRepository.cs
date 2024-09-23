@@ -53,5 +53,17 @@ namespace VyacheslavsMegaServer.Data.Repositories
 
             await _db.SaveChangesAsync();
         }
+
+        public async Task RemoveContactById(int id)
+        {
+            _db.Remove(new Contact() { Id = id });
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task RemoveLinkById(int id)
+        {
+            _db.Remove(new Link() { Id = id });
+            await _db.SaveChangesAsync();
+        }
     }
 }

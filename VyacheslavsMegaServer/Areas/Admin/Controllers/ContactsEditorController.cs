@@ -50,6 +50,12 @@ namespace VyacheslavsMegaServer.Areas.Admin.Controllers
             return View(nameof(ContactDetails), model);
         }
 
+        public async Task<IActionResult> RemoveContact(int contactId)
+        {
+            await _contactsInfoRepository.RemoveContactById(contactId);
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> ContactLinks(int contactId)
         {
             ViewBag.ContactId = contactId;
@@ -57,13 +63,12 @@ namespace VyacheslavsMegaServer.Areas.Admin.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> LinkDetails(int contactId, int? linkId, string? errorMessage) 
+        public async Task<IActionResult> LinkDetails(int contactId, int? linkId) 
         {
             ViewBag.SelectContactItems = (await _contactsInfoRepository.GetAllContacts())
                 .OrderBy(c => c.Id)
                 .Select(c => new SelectListItem(c.DisplayName, c.Id.ToString()));
-            if (!string.IsNullOrEmpty(errorMessage))
-                ModelState.AddModelError(string.Empty, errorMessage);
+            ViewBag.ContactId = contactId;
             Link link;
             if (linkId == null)
             {
@@ -75,17 +80,32 @@ namespace VyacheslavsMegaServer.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> LinkDetails(Link model)
+        public async Task<IActionResult> LinkDetails(Link model, int contactId)
         {
             if (ModelState.IsValid)
             {
                 await _contactsInfoRepository.SaveLink(model);
-                return RedirectToAction(nameof(Index));
+                RouteValueDictionary routeValues = new RouteValueDictionary()
+                {
+                    { "contactId", contactId }
+                };
+                return RedirectToAction(nameof(ContactLinks), routeValues);
+                //return RedirectToAction(nameof(Index));
             }
             ViewBag.SelectContactItems = (await _contactsInfoRepository.GetAllContacts())
                 .OrderBy(c => c.Id)
                 .Select(c => new SelectListItem(c.DisplayName, c.Id.ToString()));
             return View(model);
+        }
+
+        public async Task<IActionResult> RemoveLink(int linkId, int contactId)
+        {
+            await _contactsInfoRepository.RemoveLinkById(linkId);
+            RouteValueDictionary routeValues = new RouteValueDictionary()
+            {
+                { "contactId", contactId }
+            };
+            return RedirectToAction(nameof(ContactLinks), routeValues);
         }
     }
 }
