@@ -27,7 +27,7 @@ namespace VyacheslavsMegaServer.Data.Entities
         public virtual IdentityUser User { get; set; } = null!;
 
         [ValidateNever]
-        public virtual ICollection<Link> Links { get; set; } = null!;
+        public virtual ICollection<ContactLink> Links { get; set; } = null!;
         #endregion
     }
 }

@@ -17,7 +17,7 @@ namespace VyacheslavsMegaServer.Data
         }
 
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Link> Links { get; set; }
+        public DbSet<ContactLink> ContactLinks { get; set; }
         public DbSet<MainPageData> MainPageData { get; set; }
         public DbSet<UserReport> UserReports { get; set; }
 
@@ -60,12 +60,21 @@ namespace VyacheslavsMegaServer.Data
 
             #endregion
 
-            modelBuilder.Entity<Link>().HasData(new Link()
+            modelBuilder.Entity<ContactLink>().HasData(new ContactLink()
             {
                 Id = 1,
                 Url = "https://vk.com/sansei_1",
                 Content = "Вячеслав Костырев",
                 Description = "VK: ",
+                ContactId = 1,
+            });
+
+            modelBuilder.Entity<ContactLink>().HasData(new ContactLink()
+            {
+                Id = 2,
+                Url = "https://t.me/vyacheslav_minecraft",
+                Content = "@vyacheslav_minecraft",
+                Description = "Telegram: ",
                 ContactId = 1,
             });
 

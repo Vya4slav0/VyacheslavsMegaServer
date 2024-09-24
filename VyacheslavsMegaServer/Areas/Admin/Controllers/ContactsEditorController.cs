@@ -69,10 +69,10 @@ namespace VyacheslavsMegaServer.Areas.Admin.Controllers
                 .OrderBy(c => c.Id)
                 .Select(c => new SelectListItem(c.DisplayName, c.Id.ToString()));
             ViewBag.ContactId = contactId;
-            Link link;
+            ContactLink link;
             if (linkId == null)
             {
-                link = new Link() { ContactId = contactId };
+                link = new ContactLink() { ContactId = contactId };
                 return View(link);
             }
             link = await _contactsInfoRepository.GetLinkById(linkId.Value);
@@ -80,7 +80,7 @@ namespace VyacheslavsMegaServer.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> LinkDetails(Link model, int contactId)
+        public async Task<IActionResult> LinkDetails(ContactLink model, int contactId)
         {
             if (ModelState.IsValid)
             {

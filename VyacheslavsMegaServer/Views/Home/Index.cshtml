@@ -69,7 +69,7 @@
                 <div class="minecraft_font font_size_normal white">
                     <p>Вячеслав (Evray), создатель и администратор сервера:</p>
                     <ul>
-                        @foreach (Link link in Model.Creator.Links)
+                        @foreach (ContactLink link in Model.Creator.Links)
                         {
                             <li class="higher_li">@link.Description<a class="white" href="@Html.Raw(link.Url)">@link.Content</a></li>
                         } 

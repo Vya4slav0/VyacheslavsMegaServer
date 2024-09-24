@@ -6,13 +6,13 @@ namespace VyacheslavsMegaServer.Areas.Admin.Models
     [Area("Admin")]
     public class LinksEditorViewModel
     {
-        List<Link> _links;
+        List<ContactLink> _links;
 
-        public LinksEditorViewModel(List<Link> links)
+        public LinksEditorViewModel(List<ContactLink> links)
         {
             _links = links;
         }
 
-        public List<Link> Links => _links;
+        public List<ContactLink> Links => _links;
     }
 }

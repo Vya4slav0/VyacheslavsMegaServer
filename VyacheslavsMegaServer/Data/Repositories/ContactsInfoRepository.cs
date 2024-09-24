@@ -34,17 +34,17 @@ namespace VyacheslavsMegaServer.Data.Repositories
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<Link>> GetContactLinks(int contactId)
+        public async Task<List<ContactLink>> GetContactLinks(int contactId)
         {
-            return await _db.Links.Where(l => l.ContactId == contactId).ToListAsync() ?? new List<Link>();
+            return await _db.ContactLinks.Where(l => l.ContactId == contactId).ToListAsync() ?? new List<ContactLink>();
         }
 
-        public async Task<Link> GetLinkById(int linkId)
+        public async Task<ContactLink> GetLinkById(int linkId)
         {
-            return await _db.Links.FirstAsync(l => l.Id == linkId);
+            return await _db.ContactLinks.FirstAsync(l => l.Id == linkId);
         }
 
-        public async Task SaveLink(Link link)
+        public async Task SaveLink(ContactLink link)
         {
             if (link.Id == 0)
                 _db.Entry(link).State = EntityState.Added;
@@ -62,7 +62,7 @@ namespace VyacheslavsMegaServer.Data.Repositories
 
         public async Task RemoveLinkById(int id)
         {
-            _db.Remove(new Link() { Id = id });
+            _db.Remove(new ContactLink() { Id = id });
             await _db.SaveChangesAsync();
         }
     }
