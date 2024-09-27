@@ -1,5 +1,6 @@
 @import url("text_style.css");
 @import url("arrow_scroller.css");
+@import url("horizontal_scroller.css");
 
 @font-face {
     font-family: 'minecraft-title';
@@ -58,6 +59,9 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
 }
@@ -182,6 +186,9 @@ header {
 }
 
 .section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding: 100px 0;
 }
 
@@ -276,4 +283,56 @@ header {
 
 .table_container {
     overflow-x: auto;
+}
+
+.partners {
+    background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.1) 100%), url(../img/backgrounds/partners.jpg);
+    background-repeat: no-repeat;
+}
+
+horizontal_scroller_content {
+    width: 100%;
+}
+
+.partner_block {
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.partner_logo {
+    max-width: 200px;
+    width: 100%;
+    max-height: 100%;
+    height: fit-content;
+    vertical-align: top;
+    object-fit: contain;
+}
+
+.partner_text_container {
+    display: flex;
+    height: fit-content;
+    padding-left: 20px;
+}
+
+.partner_text_container::before {
+    display: block;
+    content: "";
+    width: 2px;
+    background-color: white;
+    margin-right: 20px;
+}
+
+.partner_title {
+    text-align: center;
+}
+
+.partner_subtitle {
+    text-align: center;
+    margin: 5px 0 20px;
+    font-size: 12px;
 }

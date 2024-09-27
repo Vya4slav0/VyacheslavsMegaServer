@@ -79,6 +79,7 @@ ul {
 
 .nav a {
     font-family: minecraft;
+    font-size: 18px;
     color: lightgray;
     text-decoration: none;
     display: inline-block;
