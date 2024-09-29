@@ -20,6 +20,8 @@ namespace VyacheslavsMegaServer.Data
         public DbSet<ContactLink> ContactLinks { get; set; }
         public DbSet<MainPageData> MainPageData { get; set; }
         public DbSet<UserReport> UserReports { get; set; }
+        public DbSet<Partner> Partners { get; set; }
+        public DbSet<PartnerLink> PartnerLinks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
