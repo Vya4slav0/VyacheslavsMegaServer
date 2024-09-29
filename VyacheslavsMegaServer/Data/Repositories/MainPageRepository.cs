@@ -1,27 +1,21 @@
 ﻿using VyacheslavsMegaServer.Data.Entities;
+using VyacheslavsMegaServer.Data.Repositories.Base;
 using VyacheslavsMegaServer.Models;
 
 namespace VyacheslavsMegaServer.Data.Repositories
 {
-    public class MainPageRepository
+    public class MainPageRepository : RepositoryBase
     {
-        private readonly AppDbContext _db;
-
-        public MainPageRepository() 
-        {
-            _db = new AppDbContext();
-        }
-
         public MainPageViewModel GetMainPageViewModel()
         {
-            MainPageData data = _db.MainPageData.OrderBy(m => m.Id).Last();
+            MainPageData data = DB.MainPageData.OrderBy(m => m.Id).Last();
             return new MainPageViewModel(data, new ContactsInfoRepository());
         }
 
         public async Task SaveMainPage(MainPageViewModel viewModel)
         {
-            _db.MainPageData.OrderBy(m => m.Id).Last().GetValuesFromVM(viewModel);
-            await _db.SaveChangesAsync();
+            DB.MainPageData.OrderBy(m => m.Id).Last().GetValuesFromVM(viewModel);
+            await DB.SaveChangesAsync();
         }
     }
 }

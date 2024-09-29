@@ -2,68 +2,62 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using VyacheslavsMegaServer.Data.Entities;
+using VyacheslavsMegaServer.Data.Repositories.Base;
 
 namespace VyacheslavsMegaServer.Data.Repositories
 {
-    public class ContactsInfoRepository
+    public class ContactsInfoRepository : RepositoryBase
     {
-        private readonly AppDbContext _db;
-
-        public ContactsInfoRepository() 
-        {
-            _db = new AppDbContext();
-        }
-
         public async Task<List<Contact>> GetAllContacts()
         {
-            return await _db.Contacts.ToListAsync() ?? new List<Contact>();
+            return await DB.Contacts.ToListAsync() ?? new List<Contact>();
         }
 
         public async Task<Contact> GetContactById(int id)
         {
-            return await _db.Contacts.FirstAsync(c => c.Id == id);
+            return await DB.Contacts.FirstAsync(c => c.Id == id);
         }
 
         public async Task SaveContact(Contact contact)
         {
             if (contact.Id == 0) 
-                _db.Entry(contact).State = EntityState.Added;
+                DB.Entry(contact).State = EntityState.Added;
             else
-                _db.Entry(contact).State = EntityState.Modified;
+                DB.Entry(contact).State = EntityState.Modified;
             
-            await _db.SaveChangesAsync();
+            await DB.SaveChangesAsync();
         }
 
         public async Task<List<ContactLink>> GetContactLinks(int contactId)
         {
-            return await _db.ContactLinks.Where(l => l.ContactId == contactId).ToListAsync() ?? new List<ContactLink>();
+            return await DB.ContactLinks.Where(l => l.ContactId == contactId).ToListAsync() ?? new List<ContactLink>();
         }
 
         public async Task<ContactLink> GetLinkById(int linkId)
         {
-            return await _db.ContactLinks.FirstAsync(l => l.Id == linkId);
+            return await DB.ContactLinks.FirstAsync(l => l.Id == linkId);
         }
 
         public async Task SaveLink(ContactLink link)
         {
             if (link.Id == 0)
-                _db.Entry(link).State = EntityState.Added;
+                DB.Entry(link).State = EntityState.Added;
             else
-                _db.Entry(link).State = EntityState.Modified;
+                DB.Entry(link).State = EntityState.Modified;
 
-            await _db.SaveChangesAsync();
+            await DB.SaveChangesAsync();
         }
 
         public async Task RemoveContactById(int id)
         {
-            _db.Remove(new Contact() { Id = id });
-            await _db.SaveChangesAsync();
+            DB.Remove(new Contact() { Id = id });
+            await DB.SaveChangesAsync();
         }
 
         public async Task RemoveLinkById(int id)
         {
-            _db.Remove(new ContactLink() { Id = id });
-            await _db.SaveChangesAsync();
+            DB.Remove(new ContactLink() { Id = id });
+            await DB.SaveChangesAsync();
         }
     }
 }
