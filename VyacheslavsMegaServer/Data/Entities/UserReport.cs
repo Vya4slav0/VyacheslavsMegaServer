@@ -1,29 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using VyacheslavsMegaServer.Data.Entities.Interfaces;
 using VyacheslavsMegaServer.Models;
 
 namespace VyacheslavsMegaServer.Data.Entities
 {
-    public class UserReport : Base.EntityBase, FromVMConvertable<UserReportViewModel, UserReport>
+    public class UserReport : Base.EntityBase
     {
         public UserReport() 
         {
             TimestampCreated = DateTime.Now;
         }
 
+        [MinLength(5)]
         [MaxLength(50)]
+        [Display(Name = "Тема")]
         public string Subject { get; set; }
 
+        [MinLength(5)]
         [MaxLength(500)]
+        [Display(Name = "Описание проблемы (максимум 500 символов)")]
         public string ReportText { get; set; }
 
         public DateTime TimestampCreated { get; private set; }
-
-        public UserReport GetValuesFromVM(UserReportViewModel viewModel)
-        {
-            Subject = viewModel.Subject;
-            ReportText = viewModel.ReportText;
-            return this;
-        }
     }
 }

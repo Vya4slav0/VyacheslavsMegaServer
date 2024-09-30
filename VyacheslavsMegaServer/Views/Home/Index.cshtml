@@ -6,17 +6,17 @@
             <div>
                 <style>
                     .title::after{
-                        content: "@Html.Raw(Model.YellowHint)";
+                        content: "@Html.Raw(Model.MainPageData.YellowHint)";
                     }
                 </style>
-                <h1 class="title">@Html.Raw(@Model.Title)</h1>
+                <h1 class="title">@Html.Raw(@Model.MainPageData.Title)</h1>
             </div>
             <hr class="hr_intro" />
-            @if (Model.ShowErrorMessage)
+            @if (Model.MainPageData.ShowErrorMessage)
             {
-                <p class="minecraft_font font_size_normal error">@Model.ErrorMessage</p>
+                <p class="minecraft_font font_size_normal error">@Model.MainPageData.ErrorMessage</p>
             }
-            @if (Model.ShowDownloadButton)
+            @if (Model.MainPageData.ShowDownloadButton)
             {
                 <a href="~/downloads/Vyacheslav's Mega Server.zip">
                     <button class="mc_button download_pack_link_button">
@@ -24,7 +24,7 @@
                     </button>
                 </a>
             }
-            <h2 class="subtitle">IP-адрес сервера: @Model.ServerAddress</h2>
+            <h2 class="subtitle">IP-адрес сервера: @Model.MainPageData.ServerAddress</h2>
         </div>
     </div>
     <a href="#about">
@@ -52,9 +52,9 @@
     <div class="container">
         <div class="section">
             <h2 class="minecraft_font section_header">О проекте</h2>
-            <div class="minecraft_font font_size_normal white">@Html.Raw(Model.Description)</div>
+            <div class="minecraft_font font_size_normal white">@Html.Raw(Model.MainPageData.Description)</div>
             <p class="minecraft_font font_size_normal section_text">
-                Присоединяйтесь к нам по адресу @Model.ServerAddress и станьте частью нашего мира!
+                Присоединяйтесь к нам по адресу @Model.MainPageData.ServerAddress и станьте частью нашего мира!
             </p>
         </div>
     </div>
@@ -80,63 +80,56 @@
     </div>
 </div>
 
-<div class="block_standart partners">
-    <div class="container">
-        <div class="section">
-            <h2 class="minecraft_font section_header">Наши партнёры</h2>
-            <div class="horizontal_scroller">
-                <div class="horizontal_scroller_arrow_container" id="HScrollerToStart">
-                    <div class="horizontal_scroller_arrow_left"></div>
-                    <div class="horizontal_scroller_arrow_left"></div>
-                </div> 
-                <div class="horizontal_scroller_arrow_container" id="HScrollerPrev">
-                    <div class="horizontal_scroller_arrow_left"></div>
-                </div>
-                
-                <div class="horizontal_scroller_content" id="HScrollerContent">
-                    <div class="partner_block">
-                        <img class="partner_logo" src="~/img/partners/terraLogo.jpg">
-                        <div class="partner_text_container">
-                            <div class="minecraft_font font_size_normal white">
-                                <h3 class="partner_title">Terra INC</h3>
-                                <p class="partner_subtitle">Игровой клуб</p>
-                                <p>В тихом уголке сада, где солнце ласково пробивалось сквозь густые ветви деревьев, стояла старая скамейка. Она помнила множество разговоров, шепот ветра и шелест листьев. Здесь время словно замедлялось, позволяя наслаждаться каждым мгновением покоя.</p>
-                            </div>
-                        </div>
+@if (Model.PartnersData.Any(p => p.ShowPartner))
+{
+    <div class="block_standart partners">
+        <div class="container">
+            <div class="section">
+                <h2 class="minecraft_font section_header">Наши партнёры</h2>
+                <div class="horizontal_scroller">
+                    <div class="horizontal_scroller_arrow_container" id="HScrollerToStart">
+                        <div class="horizontal_scroller_arrow_left"></div>
+                        <div class="horizontal_scroller_arrow_left"></div>
                     </div>
-                    <div class="partner_block">
-                        <img class="partner_logo" src="~/img/partners/terraLogo.jpg">
-                        <div class="partner_text_container">
-                            <div class="minecraft_font font_size_normal white">
-                                <h3 class="partner_title">Terra INC</h3>
-                                <p class="partner_subtitle">Игровой клуб</p>
-                                <p>В тихом уголке сада, где солнце ласково пробивалось сквозь густые ветви деревьев, стояла старая скамейка. Она помнила множество разговоров, шепот ветра и шелест листьев. Здесь время словно замедлялось, позволяя наслаждаться каждым мгновением покоя.</p>
-                            </div>
-                        </div>
+                    <div class="horizontal_scroller_arrow_container" id="HScrollerPrev">
+                        <div class="horizontal_scroller_arrow_left"></div>
                     </div>
-                    <div class="partner_block">
-                        <img class="partner_logo" src="~/img/partners/terraLogo.jpg">
-                        <div class="partner_text_container">
-                            <div class="minecraft_font font_size_normal white">
-                                <h3 class="partner_title">Terra INC</h3>
-                                <p class="partner_subtitle">Игровой клуб</p>
-                                <p>В тихом уголке сада, где солнце ласково пробивалось сквозь густые ветви деревьев, стояла старая скамейка. Она помнила множество разговоров, шепот ветра и шелест листьев. Здесь время словно замедлялось, позволяя наслаждаться каждым мгновением покоя.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="horizontal_scroller_arrow_container" id="HScrollerNext">
-                    <div class="horizontal_scroller_arrow_right"></div>
-                </div>
-                <div class="horizontal_scroller_arrow_container" id="HScrollerToEnd">
-                    <div class="horizontal_scroller_arrow_right"></div>
-                    <div class="horizontal_scroller_arrow_right"></div>
+                    <div class="horizontal_scroller_content" id="HScrollerContent">
+                        @foreach (Partner partner in Model.PartnersData.Where(p => p.ShowPartner))
+                        {
+                            <div class="partner_block">
+                                <img class="partner_logo" src="~/@partner.LogoFullPath" />
+                                <div class="partner_text_container">
+                                    <div class="minecraft_font font_size_normal white wide_element">
+                                        <h3 class="partner_title">@partner.Name</h3>
+                                        <p class="partner_subtitle">@partner.Subtitle</p>
+                                        <p>@partner.Description</p>
+                                        <p>Контакты партнёра:</p>
+                                        <ul>
+                                            @foreach (PartnerLink link in partner.Links)
+                                            {
+                                                <li class="higher_li">@link.Description<a class="white" href="@Html.Raw(link.Url)">@link.Content</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="horizontal_scroller_arrow_container" id="HScrollerNext">
+                        <div class="horizontal_scroller_arrow_right"></div>
+                    </div>
+                    <div class="horizontal_scroller_arrow_container" id="HScrollerToEnd">
+                        <div class="horizontal_scroller_arrow_right"></div>
+                        <div class="horizontal_scroller_arrow_right"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+}
 
 <script>
     const content = document.getElementById("HScrollerContent");

@@ -1,42 +1,33 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using VyacheslavsMegaServer.Data.Entities.Interfaces;
 using VyacheslavsMegaServer.Models;
 
 namespace VyacheslavsMegaServer.Data.Entities
 {
-    public class MainPageData : Base.PageData, FromVMConvertable<MainPageViewModel, MainPageData>
+    public class MainPageData : Base.PageData
     {
         [MaxLength(80)]
+        [Display(Name = "Заголовок")]
         public string Title { get; set; }
 
         [MaxLength(100)]
+        [Display(Name = "Текст ошибки")]
         public string ErrorMessage { get; set; }
 
+        [Display(Name = "Показать текст ошибки")]
         public bool ShowErrorMessage { get; set; }
 
+        [Display(Name = "Показать кнопку скачивания")]
         public bool ShowDownloadButton { get; set; }
 
+        [Display(Name = "Адрес сервера")]
         public string ServerAddress { get; set; }
 
         [MaxLength(30)]
+        [Display(Name = "Жёлтая надпись")]
         public string YellowHint { get; set; }
 
         [MaxLength(1000)]
+        [Display(Name = "Описание проекта")]
         public string Description { get; set; }
-
-        public MainPageData GetValuesFromVM(MainPageViewModel viewModel)
-        {
-            Title = viewModel.Title;
-            YellowHint = viewModel.YellowHint;
-            ShowDownloadButton = viewModel.ShowDownloadButton;
-            ErrorMessage = viewModel.ErrorMessage;
-            ShowErrorMessage = viewModel.ShowErrorMessage;
-            ServerAddress = viewModel.ServerAddress;
-            Description = viewModel.Description;
-            PageTitle = viewModel.PageTitle;
-            MetatagDescription = viewModel.MetatagDescription;
-            MetatagKeywords = viewModel.MetatagKeywords;
-            return this;
-        }
     }
 }

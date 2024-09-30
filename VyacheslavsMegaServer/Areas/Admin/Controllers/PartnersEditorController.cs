@@ -51,7 +51,12 @@ namespace VyacheslavsMegaServer.Areas.Admin.Controllers
                 {
                     await partnerLogoImage.CopyToAsync(imageStream);
                 }
-                new FileInfo(Path.Combine(_hostEnvironment.WebRootPath, "img", "partners", model.LogoFileName)).Delete();
+                if (!string.IsNullOrEmpty(model.LogoFileName))
+                {
+                    FileInfo oldImage = new FileInfo(Path.Combine(_hostEnvironment.WebRootPath, "img", "partners", model.LogoFileName));
+                    if (oldImage.Exists) oldImage.Delete();
+                }
+                
                 model.LogoFileName = uniqueFileName;
             }
             await _partnersInfoRepository.SavePartner(model);

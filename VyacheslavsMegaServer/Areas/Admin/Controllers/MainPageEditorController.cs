@@ -16,18 +16,17 @@ namespace VyacheslavsMegaServer.Areas.Admin.Controllers
             _mainPageRepository = mainPageRepository;
         }
 
-        public IActionResult EditMainPage()
+        public async Task<IActionResult> EditMainPage()
         {
-            return View(_mainPageRepository.GetMainPageViewModel());
+            return View(await _mainPageRepository.GetMainPageData());
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditMainPage(MainPageViewModel model) 
+        public async Task<IActionResult> EditMainPage(MainPageData model) 
         {
-            if (ModelState.IsValid)
-            {
-                await _mainPageRepository.SaveMainPage(model);
-            }
+            if (!ModelState.IsValid) return View(model);
+            
+            await _mainPageRepository.SaveMainPage(model);
             return Redirect("/admin");
         }
     }

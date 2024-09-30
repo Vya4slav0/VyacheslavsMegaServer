@@ -20,11 +20,11 @@ namespace VyacheslavsMegaServer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> New(UserReportViewModel model)
+        public async Task<IActionResult> New(UserReport model)
         {
             if (ModelState.IsValid)
             {
-                await _reportsRepository.SaveReportAsync(new UserReport().GetValuesFromVM(model));
+                await _reportsRepository.SaveReportAsync(model);
                 return Redirect(nameof(SuccessSending));
             }
             return View(model);

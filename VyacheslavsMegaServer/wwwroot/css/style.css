@@ -316,6 +316,7 @@ horizontal_scroller_content {
 
 .partner_text_container {
     display: flex;
+    width: 100%;
     height: fit-content;
     padding-left: 20px;
 }

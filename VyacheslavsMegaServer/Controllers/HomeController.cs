@@ -7,19 +7,29 @@ namespace VyacheslavsMegaServer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
+        private readonly MainPageRepository _mainPageRepository;
+        private readonly PartnersInfoRepository _partnersInfoRepository;
+        private readonly ContactsInfoRepository _contactsInfoRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(MainPageRepository mainPageRepository, PartnersInfoRepository partnersInfoRepository, ContactsInfoRepository contactsInfoRepository)
         {
-            _logger = logger;
+            _mainPageRepository = mainPageRepository;
+            _contactsInfoRepository = contactsInfoRepository;
+            _partnersInfoRepository = partnersInfoRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            MainPageViewModel model = new MainPageRepository().GetMainPageViewModel();
-            ViewBag.PageTitle = model.PageTitle;
-            ViewBag.Keywords = model.MetatagKeywords;
-            ViewBag.Description = model.MetatagDescription;
+            MainPageViewModel model = new MainPageViewModel()
+            {
+                MainPageData = await _mainPageRepository.GetMainPageData(),
+                Creator = await _contactsInfoRepository.GetContactById(1),
+                PartnersData = await _partnersInfoRepository.GetAllPartners()
+            };
+            ViewBag.PageTitle = model.MainPageData.PageTitle;
+            ViewBag.Keywords = model.MainPageData.MetatagKeywords;
+            ViewBag.Description = model.MainPageData.MetatagDescription;
             return View(model);
         }
 
