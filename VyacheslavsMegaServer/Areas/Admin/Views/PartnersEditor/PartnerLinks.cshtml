@@ -1,9 +1,9 @@
-﻿@model LinksEditorViewModel<ContactLink>
+﻿@model LinksEditorViewModel<PartnerLink>
 
 <div class="block_big_first">
     <div class="container">
         <div class="intro_container">
-            <h1 class="title">Редактор контактов</h1>
+            <h1 class="title">Редактор партнёров</h1>
             <br />
             <div class="table_container">
                 <table class="mc_form_font_standart white mc_table wide_element">
@@ -13,23 +13,23 @@
                         <td>Описание (префикс)</td>
                         <td colspan="2">Действия</td>
                     </tr>
-                    @foreach (ContactLink link in Model.Links)
+                    @foreach (PartnerLink link in Model.Links)
                     {
                         <tr>
                             <td class="align_left">@link.Url</td>
                             <td class="align_left">@link.Content</td>
                             <td class="align_left">@link.Description</td>
-                            <td><a asp-action="LinkDetails" asp-route-linkId="@link.Id" asp-route-contactId="@ViewBag.ContactId">Редактировать</a></td>
-                            <td><a asp-action="RemoveLink" asp-route-linkId="@link.Id" asp-route-contactId="@ViewBag.ContactId">Удалить</a></td>
+                            <td><a asp-action="LinkDetails" asp-route-linkId="@link.Id" asp-route-partnerId="@ViewBag.PartnerId">Редактировать</a></td>
+                            <td><a asp-action="RemoveLink" asp-route-linkId="@link.Id" asp-route-partnerId="@ViewBag.PartnerId">Удалить</a></td>
                         </tr>
                     }
                     <tr class="tr_header">
-                        <td colspan="5"><a asp-action="LinkDetails" asp-route-contactId="@ViewBag.ContactId">Добавить ссылку</a></td>
+                        <td colspan="5"><a asp-action="LinkDetails" asp-route-partnerId="@ViewBag.PartnerId">Добавить ссылку</a></td>
                     </tr>
                 </table>
             </div>
             <div class="form_next_block">
-                <a asp-area="Admin" asp-controller="ContactsEditor" asp-action="Index" class="white mc_form_font_standart">Назад</a>
+                <a asp-area="Admin" asp-controller="PartnersEditor" asp-action="Index" class="white mc_form_font_standart">Назад</a>
             </div>
         </div>
     </div>

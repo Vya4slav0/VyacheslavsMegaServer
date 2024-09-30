@@ -1,18 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VyacheslavsMegaServer.Data.Entities;
+using VyacheslavsMegaServer.Data.Entities.Base;
 
 namespace VyacheslavsMegaServer.Areas.Admin.Models
 {
     [Area("Admin")]
-    public class LinksEditorViewModel
+    public class LinksEditorViewModel<T> where T : Link
     {
-        List<ContactLink> _links;
+        List<T> _links;
 
-        public LinksEditorViewModel(List<ContactLink> links)
+        public LinksEditorViewModel(List<T> links)
         {
             _links = links;
         }
 
-        public List<ContactLink> Links => _links;
+        public List<T> Links => _links;
     }
 }

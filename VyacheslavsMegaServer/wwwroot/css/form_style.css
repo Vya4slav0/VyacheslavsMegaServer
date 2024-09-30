@@ -70,3 +70,11 @@
     flex-direction: column;
     height: 100%;
 }
+
+.form_image_200 {
+    display: block;
+    height: 200px;
+    width: fit-content;
+    object-fit: contain;
+    margin: 0 auto 10px;
+}

@@ -59,7 +59,7 @@ namespace VyacheslavsMegaServer.Areas.Admin.Controllers
         public async Task<IActionResult> ContactLinks(int contactId)
         {
             ViewBag.ContactId = contactId;
-            LinksEditorViewModel model = new LinksEditorViewModel(await _contactsInfoRepository.GetContactLinks(contactId));
+            LinksEditorViewModel<ContactLink> model = new LinksEditorViewModel<ContactLink>(await _contactsInfoRepository.GetContactLinks(contactId));
             return View(model);
         }
 

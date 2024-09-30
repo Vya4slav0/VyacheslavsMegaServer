@@ -1,0 +1,41 @@
+﻿@model PartnersEditorViewModel
+
+<div class="block_big_first">
+    <div class="container">
+        <div class="intro_container">
+            <h1 class="title">Редактор партнёров</h1>
+            <br />
+            <div class="table_container">
+                <table class="mc_form_font_standart white mc_table wide_element">
+                    <tr class="tr_header">
+                        <td>Партнёр</td>
+                        <td colspan="3">Действия</td>
+                    </tr>
+                    @foreach (Partner partner in Model.Partners)
+                    {
+                        <tr>
+                            <td class="align_left">@partner.Name</td>
+                            <td><a asp-action="PartnerDetails" asp-route-partnerId="@partner.Id">Редактировать</a></td>
+                            <td><a asp-action="PartnerLinks" asp-route-partnerId="@partner.Id">Редактировать ссылки</a></td>
+                            <td><a asp-action="RemovePartner" asp-route-partnerId="@partner.Id" onclick="confirmNavigation(event)">Удалить</a></td>
+                        </tr>
+                    }
+                    <tr class="tr_header">
+                        <td colspan="4"><a asp-action="PartnerDetails">Добавить партнёра</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="form_next_block">
+                <a href="/admin" class="white mc_form_font_standart">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmNavigation(event) {
+        if (!confirm("Подтвердите удаление")) {
+            event.preventDefault();
+        }
+    }
+</script>

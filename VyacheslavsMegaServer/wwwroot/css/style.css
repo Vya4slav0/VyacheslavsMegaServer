@@ -282,6 +282,7 @@ header {
 }
 
 .table_container {
+    width: 100%;
     overflow-x: auto;
 }
 

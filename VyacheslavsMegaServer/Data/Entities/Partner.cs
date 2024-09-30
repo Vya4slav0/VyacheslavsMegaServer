@@ -8,21 +8,31 @@ namespace VyacheslavsMegaServer.Data.Entities
     public class Partner : EntityBase
     {
         [MaxLength(50)]
+        [Display(Name = "Название партнёра")]
         public string Name { get; set; }
 
         [MaxLength(50)]
+        [Display(Name = "Подзаголовок")]
         public string Subtitle { get; set; }
 
         [MaxLength(300)]
+        [Display(Name = "Описание")]
         public string Description { get; set; }
 
+        [Display(Name = "Показывать партнёра")]
         public bool ShowPartner { get; set; }
 
+        [ValidateNever]
+        [Display(Name = "Логотип")]
         public string LogoFileName { get; set; }
 
         [NotMapped]
         [ValidateNever]
-        public string LogoAspPath => "~wwwroot/img/partners/" + LogoFileName;
+        public string LogoFullPath => "img/partners/" + LogoFileName;
+
+        [NotMapped]
+        [ValidateNever]
+        public bool HasLogo => !string.IsNullOrEmpty(LogoFileName);
 
         #region
         [ValidateNever]

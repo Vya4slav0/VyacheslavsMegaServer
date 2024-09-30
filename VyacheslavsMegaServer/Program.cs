@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting.Internal;
 using System.Configuration;
 using VyacheslavsMegaServer.Data;
 using VyacheslavsMegaServer.Data.Repositories;
@@ -48,6 +49,7 @@ internal class Program
         builder.Services.AddTransient<MainPageRepository>();
         builder.Services.AddTransient<UserReportsRepository>();
         builder.Services.AddTransient<ContactsInfoRepository>();
+        builder.Services.AddTransient<PartnersInfoRepository>();
 
         var app = builder.Build();
 
