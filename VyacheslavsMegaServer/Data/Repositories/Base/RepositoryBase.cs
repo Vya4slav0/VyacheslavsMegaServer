@@ -9,6 +9,6 @@
             _db = new AppDbContext();
         }   
 
-        public AppDbContext DB => _db;
+        protected AppDbContext DB => _db;
     }
 }
