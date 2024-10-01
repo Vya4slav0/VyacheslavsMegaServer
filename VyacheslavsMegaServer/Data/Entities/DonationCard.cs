@@ -9,6 +9,9 @@ namespace VyacheslavsMegaServer.Data.Entities
 {
     public class DonationCard : EntityBase
     {
+        [Display(Name = "Название карты")]
+        public string CardName { get; set; }
+
         [Display(Name = "Название банка")]
         public string BankName { get; set; }
 
