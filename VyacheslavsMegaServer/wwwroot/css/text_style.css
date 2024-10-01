@@ -69,12 +69,12 @@ ul {
     margin-left: 20px;
 }
 
-.higher_li:first-child {
+ul li:first-child {
     margin-top: 0;
 }
 
-.higher_li {
-    margin-top: 7px;
+ul li {
+    margin-top: 5px;
 }
 
 .nav a {

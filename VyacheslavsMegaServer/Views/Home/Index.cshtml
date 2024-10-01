@@ -71,7 +71,7 @@
                     <ul>
                         @foreach (ContactLink link in Model.Creator.Links)
                         {
-                            <li class="higher_li">@link.Description<a class="white" href="@Html.Raw(link.Url)">@link.Content</a></li>
+                            <li>@link.Description<a class="white" href="@Html.Raw(link.Url)">@link.Content</a></li>
                         } 
                     </ul>
                 </div>

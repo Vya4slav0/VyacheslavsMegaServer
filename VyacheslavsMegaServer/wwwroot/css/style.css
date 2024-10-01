@@ -1,6 +1,7 @@
 @import url("text_style.css");
 @import url("arrow_scroller.css");
 @import url("horizontal_scroller.css");
+@import url("card_style.css");
 
 @font-face {
     font-family: 'minecraft-title';
@@ -10,6 +11,11 @@
 @font-face {
     font-family: 'minecraft';
     src: url(../fonts/minecraft.ttf);
+}
+
+@font-face {
+    font-family: 'card';
+    src: url('../fonts/OCR A Regular.ttf');
 }
 
 @media screen and (orientation: portrait) {
@@ -337,4 +343,18 @@ horizontal_scroller_content {
     text-align: center;
     margin: 5px 0 20px;
     font-size: 12px;
+}
+
+.donation_intro {
+    background: url(../img/backgrounds/donation_intro.jpg);
+    background-repeat: no-repeat;
+}
+
+.donation_attention {
+    background: url(../img/backgrounds/donation_attention.jpg);
+    background-repeat: no-repeat;
+}
+
+.donation_subtitle {
+    margin: 40px 0;
 }

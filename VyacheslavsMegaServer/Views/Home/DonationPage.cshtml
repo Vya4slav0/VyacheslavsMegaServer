@@ -1,0 +1,68 @@
+﻿<div class="block_standart donation_intro first_slide">
+    <div class="container">
+        <div class="intro_container">
+            <h1 class="title">Пожертвования</h1>
+            <h2 class="subtitle donation_subtitle">Пожертвовать на развитие проекта можно по номеру карты:</h2>
+            <div class="cards-container">
+                <div class="card" style="background: linear-gradient(45deg, goldenrod, khaki);">
+                    <div class="card-header">
+                        <span class="bank-name">Kaspi</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-number">1111 2222 3333 4444</p>
+                        <a href="#" class="copy-link" onclick="copyCardNumber(event, 1111222233334444)">Скопировать номер</a>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-owner">VYACHESLAV K</span>
+                    </div>
+                </div>
+
+                <div class="card" style="background: linear-gradient(45deg, black, DarkSlateGrey);">
+                    <div class="card-header">
+                        <span class="bank-name">BCC</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-number">1234 5678 9012 3456</p>
+                        <a href="#" class="copy-link" onclick="copyCardNumber(event, 1234567890123456)">Скопировать номер</a>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-owner">VYACHESLAV K</span>
+                    </div>
+                </div>
+            </div>
+            <p class="minecraft_font font_size_small white">Если вы сюда попали рекомендуется прочитать <a href="#attention">этот раздел</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="block_standart donation_attention" id="attention">
+    <div class="container">
+        <div class="section">
+            <h2 class="minecraft_font section_header">Внимание!</h2>
+            <div class="minecraft_font font_size_normal white">
+                <p class="section_text">Прочитайте этот раздел, здесь могут быть ответы на ваши вопросы</p>
+                <ul>
+                    <li>У проекта пока нет конкретной цели - просто развиваемся как по кайфу.</li>
+                    <li>Проект является некоммерческим, не приносит прибыли создателю и не обещает никаких выгод или привилегий от пожертвований.</li>
+                    <li>Пожертвования тратятся на содержание проекта и рекламные расходы.</li>
+                    <li>Помимо денег можно жертвовать предметы и/или своё время. Для подробностей свяжитесь с создателем проекта в разделе <a href="/#contacts">контактов</a>.</li>
+                    <li>Возможно позже сделаю топ донатеров.</li>
+                    <li>Не "DonationAlerts" или другая платформа - по причине того, что там жадные капиталисты берут комиссию, наживаясь на работягах.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyCardNumber(event, cardNumber) {
+        const copyLink = event.target;
+
+        navigator.clipboard.writeText(cardNumber).then(function () {
+            copyLink.textContent = "Скопировано!";
+            setTimeout(function () {
+                copyLink.textContent = "Скопировать номер";
+            }, 3000);
+        });
+    }
+</script>
