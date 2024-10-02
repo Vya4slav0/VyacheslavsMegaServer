@@ -50,6 +50,7 @@ internal class Program
         builder.Services.AddTransient<UserReportsRepository>();
         builder.Services.AddTransient<ContactsInfoRepository>();
         builder.Services.AddTransient<PartnersInfoRepository>();
+        builder.Services.AddTransient<DonationCardsRepository>();
 
         var app = builder.Build();
 

@@ -1,0 +1,34 @@
+﻿@model DonationCardsEditorViewModel
+
+<div class="block_big_first">
+    <div class="container">
+        <div class="intro_container">
+            <h1 class="title">Редактор карт</h1>
+            <br />
+            <div class="table_container">
+                <table class="mc_form_font_standart white mc_table wide_element">
+                    <tr class="tr_header">
+                        <td>Название карты</td>
+                        <td colspan="2">Действия</td>
+                    </tr>
+                    @foreach (DonationCard card in Model.DonationCards)
+                    {
+                        <tr>
+                            <td class="align_left">@card.CardName</td>
+                            <td><a asp-action="CardDetails" asp-route-cardId="@card.Id">Редактировать</a></td>
+                            <td><a asp-action="RemoveCard" asp-route-cardId="@card.Id" onclick="confirmNavigation(event)">Удалить</a></td>
+                        </tr>
+                    }
+                    <tr class="tr_header">
+                        <td colspan="3"><a asp-action="CardDetails">Добавить карту</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="form_next_block">
+                <a href="/admin" class="white mc_form_font_standart">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/navigation_confirmation.js"></script>

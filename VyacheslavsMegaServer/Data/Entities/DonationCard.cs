@@ -15,13 +15,18 @@ namespace VyacheslavsMegaServer.Data.Entities
         [Display(Name = "Название банка")]
         public string BankName { get; set; }
 
+        private string _cardNumber;
+
         [Display(Name = "Номер карты")]
         [RegularExpression("^(?:\\d{4}[- ]?){3}\\d{4}|\\d{16,19}$")]
-        public string CardNumber { get; set; }
-
-        [NotMapped]
-        [ValidateNever]
-        public string CardNumderWhitespaces => Regex.Replace(Regex.Replace(CardNumber, @"\D", ""), @"(\d{4})(?=\d)", "$1 ");
+        public string CardNumber
+        {
+            get { return _cardNumber; }
+            set 
+            { 
+                _cardNumber = Regex.Replace(Regex.Replace(value ?? "", @"\D", ""), @"(\d{4})(?=\d)", "$1 "); 
+            }
+        }
 
         [NotMapped]
         [ValidateNever]
@@ -31,9 +36,9 @@ namespace VyacheslavsMegaServer.Data.Entities
         public string CardHolder { get; set; }
 
         [Display(Name = "Цвет правого верхнего угла")]
-        public string ColorUpRight { get; set; }
+        public string ColorUpRight { get; set; } = "black";
 
         [Display(Name = "Цвет левого нижнего угла")]
-        public string ColorDownLeft { get; set; }
+        public string ColorDownLeft { get; set; } = "black";
     }
 }
