@@ -11,12 +11,14 @@ namespace VyacheslavsMegaServer.Controllers
         private readonly MainPageRepository _mainPageRepository;
         private readonly PartnersInfoRepository _partnersInfoRepository;
         private readonly ContactsInfoRepository _contactsInfoRepository;
+        private readonly DonationCardsRepository _cardsRepository;
 
-        public HomeController(MainPageRepository mainPageRepository, PartnersInfoRepository partnersInfoRepository, ContactsInfoRepository contactsInfoRepository)
+        public HomeController(MainPageRepository mainPageRepository, PartnersInfoRepository partnersInfoRepository, ContactsInfoRepository contactsInfoRepository, DonationCardsRepository cardsRepository)
         {
             _mainPageRepository = mainPageRepository;
             _contactsInfoRepository = contactsInfoRepository;
             _partnersInfoRepository = partnersInfoRepository;
+            _cardsRepository = cardsRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -33,9 +35,13 @@ namespace VyacheslavsMegaServer.Controllers
             return View(model);
         }
 
-        public IActionResult DonationPage() 
-        { 
-            return View();
+        public async Task<IActionResult> DonationPage() 
+        {
+            DonationPageViewModel model = new DonationPageViewModel()
+            {
+                DonationCards = await _cardsRepository.GetAllCards()
+            };
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
